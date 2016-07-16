@@ -1,4 +1,5 @@
 apply plugin: 'com.android.library'
+apply plugin: 'com.novoda.bintray-release'
 
 android {
     compileSdkVersion 24
@@ -20,4 +21,13 @@ android {
 
 dependencies {
     compile 'com.android.support:appcompat-v7:24.0.0'
+}
+
+publish {
+    userOrg = 'raphaelbussa'
+    groupId = 'rebus'
+    artifactId = 'permission-utils'
+    publishVersion = '1.0.0'
+    desc = 'Chek marshmellow permission easily'
+    website = 'https://github.com/rebus007/PermissionUtils'
 }

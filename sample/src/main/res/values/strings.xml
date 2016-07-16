@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">PermissionUtils</string>
+    <string name="action_settings">App settings</string>
 </resources>
