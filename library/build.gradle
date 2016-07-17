@@ -8,8 +8,8 @@ android {
     defaultConfig {
         minSdkVersion 7
         targetSdkVersion 24
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "1.0.1"
     }
     buildTypes {
         release {
@@ -27,7 +27,7 @@ publish {
     userOrg = 'raphaelbussa'
     groupId = 'rebus'
     artifactId = 'permission-utils'
-    publishVersion = '1.0.0'
-    desc = 'Chek marshmellow permission easily'
+    publishVersion = '1.0.1'
+    desc = 'Check marshmellow permission easily'
     website = 'https://github.com/rebus007/PermissionUtils'
 }

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="define_permissionutils">year;owner</string>
+    <string name="library_permissionutils_author">Raphaël Bussa</string>
+    <string name="library_permissionutils_authorWebsite">http://rebus007.altervista.org</string>
+    <string name="library_permissionutils_libraryName">Permission Utils</string>
+    <string name="library_permissionutils_libraryDescription">Check marshmellow permission easily</string>
+    <string name="library_permissionutils_libraryWebsite">https://github.com/rebus007/PermissionUtils</string>
+    <string name="library_permissionutils_libraryVersion">1.0.1</string>
+    <string name="library_permissionutils_isOpenSource">true</string>
+    <string name="library_permissionutils_repositoryLink">https://github.com/rebus007/PermissionUtils</string>
+    <string name="library_permissionutils_licenseId">mit</string>
+    <string name="library_permissionutils_owner">Raphaël Bussa</string>
+    <string name="library_permissionutils_year">2016</string>
+</resources>
