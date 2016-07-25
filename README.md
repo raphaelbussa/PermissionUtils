@@ -15,7 +15,7 @@ repositories {
 ```
 ```Gradle
 dependencies {
-    compile 'rebus:permission-utils:1.0.1'
+    compile 'rebus:permission-utils:1.0.2'
 }
 ```
 ### How to use
