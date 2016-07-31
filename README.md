@@ -86,7 +86,7 @@ PermissionUtils.openApplicationSettings(MainActivity.this, R.class.getPackage().
 Browse the sample code [here](https://github.com/rebus007/PermissionUtils/tree/master/sample)
 
 ### App using Permission Utils
-If you use this lib [contact me](mailto:raphaelbussa@gmail.com?subject=Header View) and I will add it to the list below:
+If you use this lib [contact me](mailto:raphaelbussa@gmail.com?subject=Permission Utils) and I will add it to the list below:
 
 ###Developed By
 Raphaël Bussa - [raphaelbussa@gmail.com](mailto:raphaelbussa@gmail.com)
