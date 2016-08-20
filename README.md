@@ -59,7 +59,7 @@ permissionEnumArrayList.add(PermissionEnum.ACCESS_FINE_LOCATION);
 permissionEnumArrayList.add(PermissionEnum.GET_ACCOUNTS);
 permissionEnumArrayList.add(PermissionEnum.READ_CONTACTS);
 
-.permission(permissionEnumArrayList)
+.permissions(permissionEnumArrayList)
 ```
 
 if you need to simply check a permission, just call utils
