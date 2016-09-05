@@ -30,10 +30,10 @@ android {
     buildToolsVersion "24.0.1"
 
     defaultConfig {
-        minSdkVersion 7
+        minSdkVersion 9
         targetSdkVersion 24
-        versionCode 3
-        versionName "1.0.2"
+        versionCode 4
+        versionName "1.0.3"
     }
     buildTypes {
         release {
@@ -44,14 +44,14 @@ android {
 }
 
 dependencies {
-    compile 'com.android.support:appcompat-v7:24.1.1'
+    compile 'com.android.support:appcompat-v7:24.2.0'
 }
 
 publish {
     userOrg = 'raphaelbussa'
     groupId = 'rebus'
     artifactId = 'permission-utils'
-    publishVersion = '1.0.2'
+    publishVersion = '1.0.3'
     desc = 'Check marshmellow permission easily'
     website = 'https://github.com/rebus007/PermissionUtils'
 }

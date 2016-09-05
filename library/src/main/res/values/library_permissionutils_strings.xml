@@ -27,9 +27,9 @@
     <string name="library_permissionutils_author">Raphaël Bussa</string>
     <string name="library_permissionutils_authorWebsite">http://rebus007.altervista.org</string>
     <string name="library_permissionutils_libraryName">Permission Utils</string>
-    <string name="library_permissionutils_libraryDescription">Check marshmellow permission easily</string>
+    <string name="library_permissionutils_libraryDescription">Check marshmallow permission easily</string>
     <string name="library_permissionutils_libraryWebsite">https://rebus007.github.io/PermissionUtils</string>
-    <string name="library_permissionutils_libraryVersion">1.0.2</string>
+    <string name="library_permissionutils_libraryVersion">1.0.3</string>
     <string name="library_permissionutils_isOpenSource">true</string>
     <string name="library_permissionutils_repositoryLink">https://github.com/rebus007/PermissionUtils</string>
     <string name="library_permissionutils_licenseId">mit</string>

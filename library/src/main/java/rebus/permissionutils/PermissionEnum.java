@@ -57,7 +57,17 @@ public enum PermissionEnum {
     RECEIVE_SMS(Manifest.permission.RECEIVE_SMS),
     READ_SMS(Manifest.permission.READ_SMS),
     RECEIVE_WAP_PUSH(Manifest.permission.RECEIVE_WAP_PUSH),
-    RECEIVE_MMS(Manifest.permission.RECEIVE_MMS);
+    RECEIVE_MMS(Manifest.permission.RECEIVE_MMS),
+
+    GROUP_CALENDAR(Manifest.permission_group.CALENDAR),
+    GROUP_CAMERA(Manifest.permission_group.CAMERA),
+    GROUP_CONTACTS(Manifest.permission_group.CONTACTS),
+    GROUP_LOCATION(Manifest.permission_group.LOCATION),
+    GROUP_MICROPHONE(Manifest.permission_group.MICROPHONE),
+    GROUP_PHONE(Manifest.permission_group.PHONE),
+    GROUP_SENSORS(Manifest.permission_group.SENSORS),
+    GROUP_SMS(Manifest.permission_group.SMS),
+    GROUP_STORAGE(Manifest.permission_group.STORAGE);
 
     private final String permission;
 
