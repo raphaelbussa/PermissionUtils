@@ -25,6 +25,14 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
+
+    ext {
+        var = [
+                version: "1.0.4",
+                supportLib: "24.2.1"
+        ]
+    }
+
     repositories {
         jcenter()
     }

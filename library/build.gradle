@@ -32,10 +32,13 @@ android {
     defaultConfig {
         minSdkVersion 9
         targetSdkVersion 24
-        versionCode 5
-        versionName "1.0.4"
+        versionCode 1
+        versionName "${var.version}"
     }
     buildTypes {
+        all {
+            resValue "string", "version", "${var.version}"
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
@@ -44,14 +47,14 @@ android {
 }
 
 dependencies {
-    compile 'com.android.support:appcompat-v7:24.2.1'
+    compile "com.android.support:appcompat-v7:${var.supportLib}"
 }
 
 publish {
     userOrg = 'raphaelbussa'
     groupId = 'rebus'
     artifactId = 'permission-utils'
-    publishVersion = '1.0.4'
+    publishVersion = "${var.version}"
     desc = 'Check marshmellow permission easily'
     website = 'https://github.com/rebus007/PermissionUtils'
 }
