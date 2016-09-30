@@ -34,13 +34,26 @@
         android:id="@+id/ask_one_permission"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Ask one permission" />
+        android:text="Ask one permission with FullCallback" />
 
     <Button
         android:id="@+id/ask_three_permission"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Ask three permission" />
+        android:text="Ask three permission with FullCallback" />
+
+
+    <Button
+        android:id="@+id/ask_one_permission_simple"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ask one permission with SimpleCallback" />
+
+    <Button
+        android:id="@+id/ask_three_permission_simple"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ask three permission with SimpleCallback" />
 
     <Button
         android:id="@+id/check_permission"

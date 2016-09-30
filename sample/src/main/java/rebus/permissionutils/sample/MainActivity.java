@@ -43,6 +43,7 @@ import rebus.permissionutils.FullCallback;
 import rebus.permissionutils.PermissionEnum;
 import rebus.permissionutils.PermissionManager;
 import rebus.permissionutils.PermissionUtils;
+import rebus.permissionutils.SimpleCallback;
 
 public class MainActivity extends AppCompatActivity implements FullCallback {
 
@@ -53,6 +54,9 @@ public class MainActivity extends AppCompatActivity implements FullCallback {
         Button askOnePermission = (Button) findViewById(R.id.ask_one_permission);
         Button askThreePermission = (Button) findViewById(R.id.ask_three_permission);
         Button checkPermission = (Button) findViewById(R.id.check_permission);
+        Button askOnePermissionSimple = (Button) findViewById(R.id.ask_one_permission_simple);
+        Button askThreePermissionSimple = (Button) findViewById(R.id.ask_three_permission_simple);
+
         askOnePermission.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -82,6 +86,48 @@ public class MainActivity extends AppCompatActivity implements FullCallback {
                             }
                         })
                         .callback(MainActivity.this)
+                        .ask();
+            }
+        });
+        askOnePermissionSimple.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                PermissionManager.with(MainActivity.this)
+                        .permission(PermissionEnum.WRITE_EXTERNAL_STORAGE)
+                        .askagain(true)
+                        .askagainCallback(new AskagainCallback() {
+                            @Override
+                            public void showRequestPermission(UserResponse response) {
+                                showDialog(response);
+                            }
+                        })
+                        .callback(new SimpleCallback() {
+                            @Override
+                            public void result(boolean allPermissionsGranted) {
+                                Toast.makeText(MainActivity.this, PermissionEnum.WRITE_EXTERNAL_STORAGE.toString() + " allPermissionsGranted [" + allPermissionsGranted + "]", Toast.LENGTH_SHORT).show();
+                            }
+                        })
+                        .ask();
+            }
+        });
+        askThreePermissionSimple.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                PermissionManager.with(MainActivity.this)
+                        .permission(PermissionEnum.GET_ACCOUNTS, PermissionEnum.ACCESS_FINE_LOCATION, PermissionEnum.READ_SMS)
+                        .askagain(true)
+                        .askagainCallback(new AskagainCallback() {
+                            @Override
+                            public void showRequestPermission(UserResponse response) {
+                                showDialog(response);
+                            }
+                        })
+                        .callback(new SimpleCallback() {
+                            @Override
+                            public void result(boolean allPermissionsGranted) {
+                                Toast.makeText(MainActivity.this, PermissionEnum.WRITE_EXTERNAL_STORAGE.toString() + " allPermissionsGranted [" + allPermissionsGranted + "]", Toast.LENGTH_SHORT).show();
+                            }
+                        })
                         .ask();
             }
         });

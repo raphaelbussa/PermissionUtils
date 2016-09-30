@@ -208,7 +208,7 @@ public class PermissionManager {
 
     private void showResult() {
         if (simpleCallback != null)
-            simpleCallback.result(permissionToAsk.size() == permissionsGranted.size());
+            simpleCallback.result(permissionToAsk.size() == 0 || permissionToAsk.size() == permissionsGranted.size());
         if (fullCallback != null)
             fullCallback.result(permissionsGranted, permissionsDenied, permissionsDeniedForever, permissions);
     }
