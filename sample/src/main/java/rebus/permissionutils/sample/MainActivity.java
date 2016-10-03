@@ -61,6 +61,7 @@ public class MainActivity extends AppCompatActivity implements FullCallback {
             @Override
             public void onClick(View view) {
                 PermissionManager.with(MainActivity.this)
+                        .key(9000)
                         .permission(PermissionEnum.WRITE_EXTERNAL_STORAGE)
                         .askagain(true)
                         .askagainCallback(new AskagainCallback() {
@@ -77,6 +78,7 @@ public class MainActivity extends AppCompatActivity implements FullCallback {
             @Override
             public void onClick(View view) {
                 PermissionManager.with(MainActivity.this)
+                        .key(800)
                         .permission(PermissionEnum.GET_ACCOUNTS, PermissionEnum.ACCESS_FINE_LOCATION, PermissionEnum.READ_SMS)
                         .askagain(true)
                         .askagainCallback(new AskagainCallback() {
@@ -93,6 +95,7 @@ public class MainActivity extends AppCompatActivity implements FullCallback {
             @Override
             public void onClick(View view) {
                 PermissionManager.with(MainActivity.this)
+                        .key(700)
                         .permission(PermissionEnum.WRITE_EXTERNAL_STORAGE)
                         .askagain(true)
                         .askagainCallback(new AskagainCallback() {
@@ -114,6 +117,7 @@ public class MainActivity extends AppCompatActivity implements FullCallback {
             @Override
             public void onClick(View view) {
                 PermissionManager.with(MainActivity.this)
+                        .key(600)
                         .permission(PermissionEnum.GET_ACCOUNTS, PermissionEnum.ACCESS_FINE_LOCATION, PermissionEnum.READ_SMS)
                         .askagain(true)
                         .askagainCallback(new AskagainCallback() {
@@ -125,7 +129,7 @@ public class MainActivity extends AppCompatActivity implements FullCallback {
                         .callback(new SimpleCallback() {
                             @Override
                             public void result(boolean allPermissionsGranted) {
-                                Toast.makeText(MainActivity.this, PermissionEnum.WRITE_EXTERNAL_STORAGE.toString() + " allPermissionsGranted [" + allPermissionsGranted + "]", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(MainActivity.this, PermissionEnum.GET_ACCOUNTS.toString() + ", " +  PermissionEnum.ACCESS_FINE_LOCATION.toString() + ", " +  PermissionEnum.READ_SMS.toString() + " allPermissionsGranted [" + allPermissionsGranted + "]", Toast.LENGTH_SHORT).show();
                             }
                         })
                         .ask();

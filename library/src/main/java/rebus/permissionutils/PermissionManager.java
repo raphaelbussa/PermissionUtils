@@ -55,6 +55,8 @@ public class PermissionManager {
     private ArrayList<PermissionEnum> permissionsDeniedForever;
     private ArrayList<PermissionEnum> permissionToAsk;
 
+    private int key = PermissionConstant.KEY_PERMISSION;
+
     /**
      * @param context current context
      * @return current instance
@@ -69,7 +71,7 @@ public class PermissionManager {
 
     public static void handleResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         if (instance == null) return;
-        if (requestCode == PermissionConstant.KEY_PERMISSION) {
+        if (requestCode == instance.key) {
             for (int i = 0; i < permissions.length; i++) {
                 if (grantResults[i] == PackageManager.PERMISSION_GRANTED) {
                     instance.permissionsGranted.add(PermissionEnum.fromManifestPermission(permissions[i]));
@@ -164,6 +166,11 @@ public class PermissionManager {
         return this;
     }
 
+    public PermissionManager key(int key) {
+        this.key = key;
+        return this;
+    }
+
     public void ask() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             initArray();
@@ -171,7 +178,7 @@ public class PermissionManager {
             if (permissionToAsk.length == 0) {
                 showResult();
             } else {
-                ActivityCompat.requestPermissions((Activity) context, permissionToAsk, PermissionConstant.KEY_PERMISSION);
+                ActivityCompat.requestPermissions((Activity) context, permissionToAsk, key);
             }
         } else {
             initArray();

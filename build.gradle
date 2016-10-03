@@ -28,7 +28,7 @@ buildscript {
 
     ext {
         var = [
-                version: "1.0.4",
+                version: "1.0.5",
                 supportLib: "24.2.1"
         ]
     }
