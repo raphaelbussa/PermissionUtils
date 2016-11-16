@@ -71,7 +71,7 @@ Toast.makeText(MainActivity.this, permissionEnum.toString() + " isGranted [" + g
 ```
 
 #### Callbacks
-You can use two different callback, it depends of your needs.
+You can use three different callback, it depends of your needs.
 
 * FullCallback: gives you all the information on permission requested by you
 * SimpleCallback: returns a boolean that says if all permission requests were permitted
