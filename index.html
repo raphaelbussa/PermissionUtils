@@ -33,6 +33,8 @@
 
 <p><a href="https://bintray.com/raphaelbussa/maven/permission-utils/_latestVersion"> <img src="https://api.bintray.com/packages/raphaelbussa/maven/permission-utils/images/download.svg" alt="Download"> </a> <a href="https://android-arsenal.com/api?level=7"><img src="https://img.shields.io/badge/API-7%2B-brightgreen.svg?style=flat" alt="API"></a> <a href="https://github.com/rebus007/PermissionUtils/issues"><img src="https://img.shields.io/github/issues/rebus007/PermissionUtils.svg" alt="GitHub issues"></a> <a href="https://github.com/rebus007/PermissionUtils/network"><img src="https://img.shields.io/github/forks/rebus007/PermissionUtils.svg" alt="GitHub forks"></a> <a href="https://github.com/rebus007/PermissionUtils/stargazers"><img src="https://img.shields.io/github/stars/rebus007/PermissionUtils.svg" alt="GitHub stars"></a> <a href="https://raw.githubusercontent.com/rebus007/PermissionUtils/master/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="GitHub license"></a> <a href="https://android-arsenal.com/details/1/3951"><img src="https://img.shields.io/badge/Android%20Arsenal-PermissionUtils-green.svg?style=true" alt="Android Arsenal"></a></p>
 
+<p><img src="https://raw.githubusercontent.com/rebus007/PermissionUtils/master/web_hi_res_512.png" alt="Logo"></p>
+
 <p>Check marshmallow permission easily</p>
 
 <h3>
@@ -47,7 +49,7 @@
 }</pre></div>
 
 <div class="highlight highlight-source-groovy-gradle"><pre><span class="pl-en">dependencies</span> {
-    compile <span class="pl-s"><span class="pl-pds">'</span>rebus:permission-utils:1.0.2<span class="pl-pds">'</span></span>
+    compile <span class="pl-s"><span class="pl-pds">'</span>rebus:permission-utils:1.0.6<span class="pl-pds">'</span></span>
 }</pre></div>
 
 <h3>
@@ -58,8 +60,8 @@
 
 <p>First, override onRequestPermissionsResult and call PermissionManager.handleResult(requestCode, permissions, grantResults);</p>
 
-<div class="highlight highlight-source-java"><pre>@<span class="pl-smi">Override</span>
-<span class="pl-k">public</span> <span class="pl-k">void</span> onRequestPermissionsResult(<span class="pl-k">int</span> requestCode, @<span class="pl-smi">NonNull</span> <span class="pl-k">String</span>[] permissions, @<span class="pl-smi">NonNull</span> <span class="pl-k">int</span>[] grantResults) {
+<div class="highlight highlight-source-java"><pre><span class="pl-k">@Override</span>
+<span class="pl-k">public</span> <span class="pl-k">void</span> onRequestPermissionsResult(<span class="pl-k">int</span> requestCode, <span class="pl-k">@NonNull</span> <span class="pl-k">String</span>[] permissions, <span class="pl-k">@NonNull</span> <span class="pl-k">int</span>[] grantResults) {
     <span class="pl-v">super</span><span class="pl-k">.</span>onRequestPermissionsResult(requestCode, permissions, grantResults);
     <span class="pl-smi">PermissionManager</span><span class="pl-k">.</span>handleResult(requestCode, permissions, grantResults);
 }</pre></div>
@@ -109,6 +111,7 @@ permissionEnumArrayList<span class="pl-k">.</span>add(<span class="pl-smi">Permi
 <ul>
 <li>FullCallback: gives you all the information on permission requested by you</li>
 <li>SimpleCallback: returns a boolean that says if all permission requests were permitted</li>
+<li>SmartCallback: returns a boolean that says if all permission requests were permitted and a boolean that says if some permissions are denied forever</li>
 </ul>
 
 <h4>
