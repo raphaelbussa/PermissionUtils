@@ -87,6 +87,9 @@ PermissionUtils.openApplicationSettings(MainActivity.this, R.class.getPackage().
 ### Sample
 Browse the sample code [here](https://github.com/rebus007/PermissionUtils/tree/master/sample)
 
+### Javadoc
+Browse Javadoc [here](https://rebus007.github.io/PermissionUtils/javadoc/)
+
 ### App using Permission Utils
 If you use this lib [contact me](mailto:raphaelbussa@gmail.com?subject=Permission Utils) and I will add it to the list below:
 
