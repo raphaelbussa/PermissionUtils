@@ -24,6 +24,7 @@
 
 package rebus.permissionutils;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.pm.PackageManager;
@@ -39,6 +40,7 @@ import java.util.Collections;
  */
 public class PermissionManager {
 
+    @SuppressLint("StaticFieldLeak")
     private static PermissionManager instance;
 
     private Context context;
@@ -46,6 +48,7 @@ public class PermissionManager {
     private FullCallback fullCallback;
     private SimpleCallback simpleCallback;
     private AskagainCallback askagainCallback;
+    private SmartCallback smartCallback;
 
     private boolean askagain = false;
 
@@ -151,13 +154,22 @@ public class PermissionManager {
 
     public PermissionManager callback(FullCallback fullCallback) {
         this.simpleCallback = null;
+        this.smartCallback = null;
         this.fullCallback = fullCallback;
         return this;
     }
 
     public PermissionManager callback(SimpleCallback simpleCallback) {
         this.fullCallback = null;
+        this.smartCallback = null;
         this.simpleCallback = simpleCallback;
+        return this;
+    }
+
+    public PermissionManager callback(SmartCallback smartCallback) {
+        this.fullCallback = null;
+        this.simpleCallback = null;
+        this.smartCallback = smartCallback;
         return this;
     }
 
@@ -218,6 +230,8 @@ public class PermissionManager {
             simpleCallback.result(permissionToAsk.size() == 0 || permissionToAsk.size() == permissionsGranted.size());
         if (fullCallback != null)
             fullCallback.result(permissionsGranted, permissionsDenied, permissionsDeniedForever, permissions);
+        if (smartCallback != null)
+            smartCallback.result(permissionToAsk.size() == 0 || permissionToAsk.size() == permissionsGranted.size(), !permissionsDeniedForever.isEmpty());
     }
 
 }

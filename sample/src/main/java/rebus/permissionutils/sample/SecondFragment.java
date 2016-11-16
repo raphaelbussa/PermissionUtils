@@ -1,44 +1,16 @@
-/*
- * The MIT License (MIT)
- *
- * Copyright (c) 2016 Raphaël Bussa
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in all
- * copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
- */
-
 package rebus.permissionutils.sample;
 
+import android.annotation.SuppressLint;
 import android.content.DialogInterface;
-import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
-import android.text.Html;
-import android.text.Spanned;
-import android.text.method.LinkMovementMethod;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -52,30 +24,43 @@ import rebus.permissionutils.PermissionUtils;
 import rebus.permissionutils.SimpleCallback;
 import rebus.permissionutils.SmartCallback;
 
-public class MainActivity extends AppCompatActivity implements FullCallback {
+/**
+ * Created by raphaelbussa on 16/11/16.
+ */
+
+public class SecondFragment extends Fragment implements FullCallback {
+
+    private Button askOnePermission;
+    private Button askThreePermission;
+    private Button checkPermission;
+    private Button askOnePermissionSimple;
+    private Button askThreePermissionSimple;
+    private Button askOnePermissionSmart;
+    private Button askThreePermissionSmart;
+
+    @SuppressLint("InflateParams")
+    @Nullable
+    @Override
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_second, null);
+        askOnePermission = (Button) view.findViewById(R.id.ask_one_permission);
+        askThreePermission = (Button) view.findViewById(R.id.ask_three_permission);
+        checkPermission = (Button) view.findViewById(R.id.check_permission);
+        askOnePermissionSimple = (Button) view.findViewById(R.id.ask_one_permission_simple);
+        askThreePermissionSimple = (Button) view.findViewById(R.id.ask_three_permission_simple);
+        askOnePermissionSmart = (Button) view.findViewById(R.id.ask_one_permission_smart);
+        askThreePermissionSmart = (Button) view.findViewById(R.id.ask_three_permission_smart);
+        return view;
+    }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setSubtitle("Activity");
-        }
-
-        Button askOnePermission = (Button) findViewById(R.id.ask_one_permission);
-        Button askThreePermission = (Button) findViewById(R.id.ask_three_permission);
-        Button checkPermission = (Button) findViewById(R.id.check_permission);
-        Button askOnePermissionSimple = (Button) findViewById(R.id.ask_one_permission_simple);
-        Button askThreePermissionSimple = (Button) findViewById(R.id.ask_three_permission_simple);
-        Button askOnePermissionSmart = (Button) findViewById(R.id.ask_one_permission_smart);
-        Button askThreePermissionSmart = (Button) findViewById(R.id.ask_three_permission_smart);
-
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
         askOnePermission.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                PermissionManager.with(MainActivity.this)
-                        .key(9000)
+                PermissionManager.with(getActivity())
+                        .key(9001)
                         .permission(PermissionEnum.WRITE_EXTERNAL_STORAGE)
                         .askagain(true)
                         .askagainCallback(new AskagainCallback() {
@@ -84,15 +69,15 @@ public class MainActivity extends AppCompatActivity implements FullCallback {
                                 showDialog(response);
                             }
                         })
-                        .callback(MainActivity.this)
+                        .callback(SecondFragment.this)
                         .ask();
             }
         });
         askThreePermission.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                PermissionManager.with(MainActivity.this)
-                        .key(800)
+                PermissionManager.with(getActivity())
+                        .key(801)
                         .permission(PermissionEnum.GET_ACCOUNTS, PermissionEnum.ACCESS_FINE_LOCATION, PermissionEnum.READ_SMS)
                         .askagain(true)
                         .askagainCallback(new AskagainCallback() {
@@ -101,15 +86,15 @@ public class MainActivity extends AppCompatActivity implements FullCallback {
                                 showDialog(response);
                             }
                         })
-                        .callback(MainActivity.this)
+                        .callback(SecondFragment.this)
                         .ask();
             }
         });
         askOnePermissionSimple.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                PermissionManager.with(MainActivity.this)
-                        .key(700)
+                PermissionManager.with(getActivity())
+                        .key(701)
                         .permission(PermissionEnum.WRITE_EXTERNAL_STORAGE)
                         .askagain(true)
                         .askagainCallback(new AskagainCallback() {
@@ -121,7 +106,7 @@ public class MainActivity extends AppCompatActivity implements FullCallback {
                         .callback(new SimpleCallback() {
                             @Override
                             public void result(boolean allPermissionsGranted) {
-                                Toast.makeText(MainActivity.this, PermissionEnum.WRITE_EXTERNAL_STORAGE.toString() + " allPermissionsGranted [" + allPermissionsGranted + "]", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getActivity(), PermissionEnum.WRITE_EXTERNAL_STORAGE.toString() + " allPermissionsGranted [" + allPermissionsGranted + "]", Toast.LENGTH_SHORT).show();
                             }
                         })
                         .ask();
@@ -130,8 +115,8 @@ public class MainActivity extends AppCompatActivity implements FullCallback {
         askThreePermissionSimple.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                PermissionManager.with(MainActivity.this)
-                        .key(600)
+                PermissionManager.with(getActivity())
+                        .key(601)
                         .permission(PermissionEnum.GET_ACCOUNTS, PermissionEnum.ACCESS_FINE_LOCATION, PermissionEnum.READ_SMS)
                         .askagain(true)
                         .askagainCallback(new AskagainCallback() {
@@ -143,7 +128,7 @@ public class MainActivity extends AppCompatActivity implements FullCallback {
                         .callback(new SimpleCallback() {
                             @Override
                             public void result(boolean allPermissionsGranted) {
-                                Toast.makeText(MainActivity.this, PermissionEnum.GET_ACCOUNTS.toString() + ", " +  PermissionEnum.ACCESS_FINE_LOCATION.toString() + ", " +  PermissionEnum.READ_SMS.toString() + " allPermissionsGranted [" + allPermissionsGranted + "]", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getActivity(), PermissionEnum.GET_ACCOUNTS.toString() + ", " +  PermissionEnum.ACCESS_FINE_LOCATION.toString() + ", " +  PermissionEnum.READ_SMS.toString() + " allPermissionsGranted [" + allPermissionsGranted + "]", Toast.LENGTH_SHORT).show();
                             }
                         })
                         .ask();
@@ -152,8 +137,8 @@ public class MainActivity extends AppCompatActivity implements FullCallback {
         askOnePermissionSmart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                PermissionManager.with(MainActivity.this)
-                        .key(2000)
+                PermissionManager.with(getActivity())
+                        .key(2001)
                         .permission(PermissionEnum.WRITE_EXTERNAL_STORAGE)
                         .askagain(true)
                         .askagainCallback(new AskagainCallback() {
@@ -165,7 +150,7 @@ public class MainActivity extends AppCompatActivity implements FullCallback {
                         .callback(new SmartCallback() {
                             @Override
                             public void result(boolean allPermissionsGranted, boolean somePermissionsDeniedForever) {
-                                Toast.makeText(MainActivity.this, PermissionEnum.WRITE_EXTERNAL_STORAGE.toString() + " allPermissionsGranted [" + allPermissionsGranted + "] somePermissionsDeniedForever [" + somePermissionsDeniedForever + "]", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getActivity(), PermissionEnum.WRITE_EXTERNAL_STORAGE.toString() + " allPermissionsGranted [" + allPermissionsGranted + "] somePermissionsDeniedForever [" + somePermissionsDeniedForever + "]", Toast.LENGTH_SHORT).show();
                             }
                         })
                         .ask();
@@ -174,8 +159,8 @@ public class MainActivity extends AppCompatActivity implements FullCallback {
         askThreePermissionSmart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                PermissionManager.with(MainActivity.this)
-                        .key(2100)
+                PermissionManager.with(getActivity())
+                        .key(2101)
                         .permission(PermissionEnum.GET_ACCOUNTS, PermissionEnum.ACCESS_FINE_LOCATION, PermissionEnum.READ_SMS)
                         .askagain(true)
                         .askagainCallback(new AskagainCallback() {
@@ -187,7 +172,7 @@ public class MainActivity extends AppCompatActivity implements FullCallback {
                         .callback(new SmartCallback() {
                             @Override
                             public void result(boolean allPermissionsGranted, boolean somePermissionsDeniedForever) {
-                                Toast.makeText(MainActivity.this, PermissionEnum.GET_ACCOUNTS.toString() + ", " +  PermissionEnum.ACCESS_FINE_LOCATION.toString() + ", " +  PermissionEnum.READ_SMS.toString() + " allPermissionsGranted [" + allPermissionsGranted + "] somePermissionsDeniedForever [" + somePermissionsDeniedForever + "]", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(getActivity(), PermissionEnum.GET_ACCOUNTS.toString() + ", " +  PermissionEnum.ACCESS_FINE_LOCATION.toString() + ", " +  PermissionEnum.READ_SMS.toString() + " allPermissionsGranted [" + allPermissionsGranted + "] somePermissionsDeniedForever [" + somePermissionsDeniedForever + "]", Toast.LENGTH_SHORT).show();
                             }
                         })
                         .ask();
@@ -197,10 +182,30 @@ public class MainActivity extends AppCompatActivity implements FullCallback {
             @Override
             public void onClick(View view) {
                 PermissionEnum permissionEnum = PermissionEnum.WRITE_EXTERNAL_STORAGE;
-                boolean granted = PermissionUtils.isGranted(MainActivity.this, PermissionEnum.WRITE_EXTERNAL_STORAGE);
-                Toast.makeText(MainActivity.this, permissionEnum.toString() + " isGranted [" + granted + "]", Toast.LENGTH_SHORT).show();
+                boolean granted = PermissionUtils.isGranted(getActivity(), PermissionEnum.WRITE_EXTERNAL_STORAGE);
+                Toast.makeText(getActivity(), permissionEnum.toString() + " isGranted [" + granted + "]", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    private void showDialog(final AskagainCallback.UserResponse response) {
+        new AlertDialog.Builder(getActivity())
+                .setTitle("Permission needed")
+                .setMessage("This app realy need to use this permission, you wont to authorize it?")
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        response.result(true);
+                    }
+                })
+                .setNegativeButton("NOT NOW", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        response.result(false);
+                    }
+                })
+                .setCancelable(false)
+                .show();
     }
 
     @Override
@@ -224,7 +229,7 @@ public class MainActivity extends AppCompatActivity implements FullCallback {
             msg.add(permissionEnum.toString() + " [Asked]");
         }
         String[] items = msg.toArray(new String[msg.size()]);
-        new AlertDialog.Builder(MainActivity.this)
+        new AlertDialog.Builder(getActivity())
                 .setTitle("Permission result")
                 .setItems(items, new DialogInterface.OnClickListener() {
                     @Override
@@ -234,67 +239,4 @@ public class MainActivity extends AppCompatActivity implements FullCallback {
                 })
                 .show();
     }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.action_settings:
-                PermissionUtils.openApplicationSettings(MainActivity.this, R.class.getPackage().getName());
-                break;
-            case R.id.action_fragment:
-                startActivity(new Intent(MainActivity.this, FragmentActivity.class));
-                break;
-            case R.id.action_info:
-                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
-                builder.setTitle(getString(R.string.action_info));
-                builder.setMessage(fromHtml(getString(R.string.info_message)));
-                builder.setPositiveButton(getString(R.string.close), null);
-                AlertDialog dialog = builder.create();
-                dialog.show();
-                TextView textView = (TextView) dialog.findViewById(android.R.id.message);
-                if (textView != null) {
-                    textView.setMovementMethod(LinkMovementMethod.getInstance());
-                }
-                break;
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-    private void showDialog(final AskagainCallback.UserResponse response) {
-        new AlertDialog.Builder(MainActivity.this)
-                .setTitle("Permission needed")
-                .setMessage("This app realy need to use this permission, you wont to authorize it?")
-                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        response.result(true);
-                    }
-                })
-                .setNegativeButton("NOT NOW", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        response.result(false);
-                    }
-                })
-                .setCancelable(false)
-                .show();
-    }
-
-    private Spanned fromHtml(String value) {
-        if (value == null) {
-            value = "";
-        }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            return Html.fromHtml(value, Html.FROM_HTML_MODE_LEGACY);
-        } else {
-            return Html.fromHtml(value);
-        }
-    }
-
 }

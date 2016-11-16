@@ -28,8 +28,8 @@ buildscript {
 
     ext {
         var = [
-                version: "1.0.5",
-                supportLib: "24.2.1"
+                version: "1.0.6",
+                supportLib: "25.0.0"
         ]
     }
 
@@ -37,7 +37,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.2.0'
+        classpath 'com.android.tools.build:gradle:2.2.2'
         classpath 'com.novoda:bintray-release:0.3.4'
     }
 }

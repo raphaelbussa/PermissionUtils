@@ -15,7 +15,7 @@ repositories {
 ```
 ```Gradle
 dependencies {
-    compile 'rebus:permission-utils:1.0.5'
+    compile 'rebus:permission-utils:1.0.6'
 }
 ```
 ### How to use
@@ -74,6 +74,7 @@ You can use two different callback, it depends of your needs.
 
 * FullCallback: gives you all the information on permission requested by you
 * SimpleCallback: returns a boolean that says if all permission requests were permitted
+* SmartCallback: returns a boolean that says if all permission requests were permitted and a boolean that says if some permissions are denied forever
 
 #### Little extra
 If user answer "Never ask again" to a request for permission, you can redirect user to app settings, with an utils
