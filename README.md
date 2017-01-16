@@ -35,7 +35,7 @@ Now you can ask permission :D
 ```Java
 PermissionManager.with(MainActivity.this)
         .permission(PermissionEnum.WRITE_EXTERNAL_STORAGE)
-        .askagain(true)
+        .askAgain(true)
         .askAgainCallback(new AskAgainCallback() {
             @Override
             public void showRequestPermission(UserResponse response) {
