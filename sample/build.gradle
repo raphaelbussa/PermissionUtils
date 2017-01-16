@@ -25,13 +25,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.0"
+    compileSdkVersion var.compileSdk
+    buildToolsVersion var.buildTools
 
     defaultConfig {
         applicationId "rebus.permissionutils.sample"
-        minSdkVersion 9
-        targetSdkVersion 25
+        minSdkVersion var.minSdk
+        targetSdkVersion var.targetSdk
         versionCode 1
         versionName "${var.version}"
     }

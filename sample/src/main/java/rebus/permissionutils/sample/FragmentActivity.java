@@ -7,10 +7,6 @@ import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
-/**
- * Created by raphaelbussa on 16/11/16.
- */
-
 public class FragmentActivity extends AppCompatActivity {
 
     private final static String SECOND_FRAGMENT = "SECOND_FRAGMENT";

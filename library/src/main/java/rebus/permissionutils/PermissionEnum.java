@@ -31,6 +31,7 @@ import android.support.annotation.NonNull;
 /**
  * Created by raphaelbussa on 22/06/16.
  */
+@SuppressWarnings("SpellCheckingInspection")
 @SuppressLint("InlinedApi")
 public enum PermissionEnum {
 
@@ -67,7 +68,9 @@ public enum PermissionEnum {
     GROUP_PHONE(Manifest.permission_group.PHONE),
     GROUP_SENSORS(Manifest.permission_group.SENSORS),
     GROUP_SMS(Manifest.permission_group.SMS),
-    GROUP_STORAGE(Manifest.permission_group.STORAGE);
+    GROUP_STORAGE(Manifest.permission_group.STORAGE),
+
+    NULL("");
 
     private final String permission;
 
@@ -81,7 +84,7 @@ public enum PermissionEnum {
                 return permissionEnum;
             }
         }
-        return null;
+        return NULL;
     }
 
     @Override

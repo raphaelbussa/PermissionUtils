@@ -26,12 +26,12 @@ apply plugin: 'com.android.library'
 apply plugin: 'com.novoda.bintray-release'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.0"
+    compileSdkVersion var.compileSdk
+    buildToolsVersion var.buildTools
 
     defaultConfig {
-        minSdkVersion 9
-        targetSdkVersion 25
+        minSdkVersion var.minSdk
+        targetSdkVersion var.targetSdk
         versionCode 1
         versionName "${var.version}"
     }
@@ -47,7 +47,7 @@ android {
 }
 
 dependencies {
-    compile "com.android.support:appcompat-v7:${var.supportLib}"
+    compile "com.android.support:support-v4:${var.supportLib}"
 }
 
 publish {
@@ -55,6 +55,6 @@ publish {
     groupId = 'rebus'
     artifactId = 'permission-utils'
     publishVersion = "${var.version}"
-    desc = 'Check marshmellow permission easily'
+    desc = 'Check marshmallow permission easily'
     website = 'https://github.com/rebus007/PermissionUtils'
 }

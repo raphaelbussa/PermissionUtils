@@ -44,7 +44,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-import rebus.permissionutils.AskagainCallback;
+import rebus.permissionutils.AskAgainCallback;
 import rebus.permissionutils.FullCallback;
 import rebus.permissionutils.PermissionEnum;
 import rebus.permissionutils.PermissionManager;
@@ -65,11 +65,12 @@ public class MainActivity extends AppCompatActivity implements FullCallback {
 
         Button askOnePermission = (Button) findViewById(R.id.ask_one_permission);
         Button askThreePermission = (Button) findViewById(R.id.ask_three_permission);
-        Button checkPermission = (Button) findViewById(R.id.check_permission);
         Button askOnePermissionSimple = (Button) findViewById(R.id.ask_one_permission_simple);
         Button askThreePermissionSimple = (Button) findViewById(R.id.ask_three_permission_simple);
         Button askOnePermissionSmart = (Button) findViewById(R.id.ask_one_permission_smart);
         Button askThreePermissionSmart = (Button) findViewById(R.id.ask_three_permission_smart);
+
+        Button checkPermission = (Button) findViewById(R.id.check_permission);
 
         askOnePermission.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,8 +78,8 @@ public class MainActivity extends AppCompatActivity implements FullCallback {
                 PermissionManager.with(MainActivity.this)
                         .key(9000)
                         .permission(PermissionEnum.WRITE_EXTERNAL_STORAGE)
-                        .askagain(true)
-                        .askagainCallback(new AskagainCallback() {
+                        .askAgain(true)
+                        .askAgainCallback(new AskAgainCallback() {
                             @Override
                             public void showRequestPermission(UserResponse response) {
                                 showDialog(response);
@@ -94,8 +95,8 @@ public class MainActivity extends AppCompatActivity implements FullCallback {
                 PermissionManager.with(MainActivity.this)
                         .key(800)
                         .permission(PermissionEnum.GET_ACCOUNTS, PermissionEnum.ACCESS_FINE_LOCATION, PermissionEnum.READ_SMS)
-                        .askagain(true)
-                        .askagainCallback(new AskagainCallback() {
+                        .askAgain(true)
+                        .askAgainCallback(new AskAgainCallback() {
                             @Override
                             public void showRequestPermission(UserResponse response) {
                                 showDialog(response);
@@ -111,8 +112,8 @@ public class MainActivity extends AppCompatActivity implements FullCallback {
                 PermissionManager.with(MainActivity.this)
                         .key(700)
                         .permission(PermissionEnum.WRITE_EXTERNAL_STORAGE)
-                        .askagain(true)
-                        .askagainCallback(new AskagainCallback() {
+                        .askAgain(true)
+                        .askAgainCallback(new AskAgainCallback() {
                             @Override
                             public void showRequestPermission(UserResponse response) {
                                 showDialog(response);
@@ -133,8 +134,8 @@ public class MainActivity extends AppCompatActivity implements FullCallback {
                 PermissionManager.with(MainActivity.this)
                         .key(600)
                         .permission(PermissionEnum.GET_ACCOUNTS, PermissionEnum.ACCESS_FINE_LOCATION, PermissionEnum.READ_SMS)
-                        .askagain(true)
-                        .askagainCallback(new AskagainCallback() {
+                        .askAgain(true)
+                        .askAgainCallback(new AskAgainCallback() {
                             @Override
                             public void showRequestPermission(UserResponse response) {
                                 showDialog(response);
@@ -155,8 +156,8 @@ public class MainActivity extends AppCompatActivity implements FullCallback {
                 PermissionManager.with(MainActivity.this)
                         .key(2000)
                         .permission(PermissionEnum.WRITE_EXTERNAL_STORAGE)
-                        .askagain(true)
-                        .askagainCallback(new AskagainCallback() {
+                        .askAgain(true)
+                        .askAgainCallback(new AskAgainCallback() {
                             @Override
                             public void showRequestPermission(UserResponse response) {
                                 showDialog(response);
@@ -177,8 +178,8 @@ public class MainActivity extends AppCompatActivity implements FullCallback {
                 PermissionManager.with(MainActivity.this)
                         .key(2100)
                         .permission(PermissionEnum.GET_ACCOUNTS, PermissionEnum.ACCESS_FINE_LOCATION, PermissionEnum.READ_SMS)
-                        .askagain(true)
-                        .askagainCallback(new AskagainCallback() {
+                        .askAgain(true)
+                        .askAgainCallback(new AskAgainCallback() {
                             @Override
                             public void showRequestPermission(UserResponse response) {
                                 showDialog(response);
@@ -201,6 +202,7 @@ public class MainActivity extends AppCompatActivity implements FullCallback {
                 Toast.makeText(MainActivity.this, permissionEnum.toString() + " isGranted [" + granted + "]", Toast.LENGTH_SHORT).show();
             }
         });
+
     }
 
     @Override
@@ -266,7 +268,7 @@ public class MainActivity extends AppCompatActivity implements FullCallback {
         return super.onOptionsItemSelected(item);
     }
 
-    private void showDialog(final AskagainCallback.UserResponse response) {
+    private void showDialog(final AskAgainCallback.UserResponse response) {
         new AlertDialog.Builder(MainActivity.this)
                 .setTitle("Permission needed")
                 .setMessage("This app realy need to use this permission, you wont to authorize it?")

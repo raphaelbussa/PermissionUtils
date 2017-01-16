@@ -16,7 +16,7 @@ repositories {
 ```
 ```Gradle
 dependencies {
-    compile 'rebus:permission-utils:1.0.6'
+    compile 'rebus:permission-utils:1.0.7'
 }
 ```
 ### How to use
@@ -36,7 +36,7 @@ Now you can ask permission :D
 PermissionManager.with(MainActivity.this)
         .permission(PermissionEnum.WRITE_EXTERNAL_STORAGE)
         .askagain(true)
-        .askagainCallback(new AskagainCallback() {
+        .askAgainCallback(new AskAgainCallback() {
             @Override
             public void showRequestPermission(UserResponse response) {
                     showDialog(response);

@@ -47,10 +47,10 @@ public class PermissionManager {
 
     private FullCallback fullCallback;
     private SimpleCallback simpleCallback;
-    private AskagainCallback askagainCallback;
+    private AskAgainCallback askAgainCallback;
     private SmartCallback smartCallback;
 
-    private boolean askagain = false;
+    private boolean askAgain = false;
 
     private ArrayList<PermissionEnum> permissions;
     private ArrayList<PermissionEnum> permissionsGranted;
@@ -87,10 +87,10 @@ public class PermissionManager {
                     instance.permissionToAsk.add(PermissionEnum.fromManifestPermission(permissions[i]));
                 }
             }
-            if (instance.permissionToAsk.size() != 0 && instance.askagain) {
-                instance.askagain = false;
-                if (instance.askagainCallback != null && instance.permissionsDeniedForever.size() != instance.permissionsDenied.size()) {
-                    instance.askagainCallback.showRequestPermission(new AskagainCallback.UserResponse() {
+            if (instance.permissionToAsk.size() != 0 && instance.askAgain) {
+                instance.askAgain = false;
+                if (instance.askAgainCallback != null && instance.permissionsDeniedForever.size() != instance.permissionsDenied.size()) {
+                    instance.askAgainCallback.showRequestPermission(new AskAgainCallback.UserResponse() {
                         @Override
                         public void result(boolean askagain) {
                             if (askagain) {
@@ -144,14 +144,18 @@ public class PermissionManager {
     }
 
     /**
-     * @param askagain ask again when permission not granted
+     * @param askAgain ask again when permission not granted
      * @return current instance
      */
-    public PermissionManager askagain(boolean askagain) {
-        this.askagain = askagain;
+    public PermissionManager askAgain(boolean askAgain) {
+        this.askAgain = askAgain;
         return this;
     }
 
+    /**
+     * @param fullCallback set fullCallback for the request
+     * @return current instance
+     */
     public PermissionManager callback(FullCallback fullCallback) {
         this.simpleCallback = null;
         this.smartCallback = null;
@@ -159,6 +163,10 @@ public class PermissionManager {
         return this;
     }
 
+    /**
+     * @param simpleCallback set simpleCallback for the request
+     * @return current instance
+     */
     public PermissionManager callback(SimpleCallback simpleCallback) {
         this.fullCallback = null;
         this.smartCallback = null;
@@ -166,6 +174,10 @@ public class PermissionManager {
         return this;
     }
 
+    /**
+     * @param smartCallback set smartCallback for the request
+     * @return current instance
+     */
     public PermissionManager callback(SmartCallback smartCallback) {
         this.fullCallback = null;
         this.simpleCallback = null;
@@ -173,16 +185,27 @@ public class PermissionManager {
         return this;
     }
 
-    public PermissionManager askagainCallback(AskagainCallback askagainCallback) {
-        this.askagainCallback = askagainCallback;
+    /**
+     * @param askAgainCallback set askAgainCallback for the request
+     * @return current instance
+     */
+    public PermissionManager askAgainCallback(AskAgainCallback askAgainCallback) {
+        this.askAgainCallback = askAgainCallback;
         return this;
     }
 
+    /**
+     * @param key set a custom request code
+     * @return current instance
+     */
     public PermissionManager key(int key) {
         this.key = key;
         return this;
     }
 
+    /**
+     * just start all permission manager
+     */
     public void ask() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             initArray();
@@ -200,7 +223,7 @@ public class PermissionManager {
     }
 
     /**
-     * @return permission that you realy need to ask
+     * @return permission that you really need to ask
      */
     @NonNull
     private String[] permissionToAsk() {
@@ -225,6 +248,9 @@ public class PermissionManager {
         this.permissionToAsk = new ArrayList<>();
     }
 
+    /**
+     * check if one of three types of callback are not null and pass data
+     */
     private void showResult() {
         if (simpleCallback != null)
             simpleCallback.result(permissionToAsk.size() == 0 || permissionToAsk.size() == permissionsGranted.size());

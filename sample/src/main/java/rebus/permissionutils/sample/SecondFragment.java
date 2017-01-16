@@ -16,17 +16,13 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
-import rebus.permissionutils.AskagainCallback;
+import rebus.permissionutils.AskAgainCallback;
 import rebus.permissionutils.FullCallback;
 import rebus.permissionutils.PermissionEnum;
 import rebus.permissionutils.PermissionManager;
 import rebus.permissionutils.PermissionUtils;
 import rebus.permissionutils.SimpleCallback;
 import rebus.permissionutils.SmartCallback;
-
-/**
- * Created by raphaelbussa on 16/11/16.
- */
 
 public class SecondFragment extends Fragment implements FullCallback {
 
@@ -62,8 +58,8 @@ public class SecondFragment extends Fragment implements FullCallback {
                 PermissionManager.with(getActivity())
                         .key(9001)
                         .permission(PermissionEnum.WRITE_EXTERNAL_STORAGE)
-                        .askagain(true)
-                        .askagainCallback(new AskagainCallback() {
+                        .askAgain(true)
+                        .askAgainCallback(new AskAgainCallback() {
                             @Override
                             public void showRequestPermission(UserResponse response) {
                                 showDialog(response);
@@ -79,8 +75,8 @@ public class SecondFragment extends Fragment implements FullCallback {
                 PermissionManager.with(getActivity())
                         .key(801)
                         .permission(PermissionEnum.GET_ACCOUNTS, PermissionEnum.ACCESS_FINE_LOCATION, PermissionEnum.READ_SMS)
-                        .askagain(true)
-                        .askagainCallback(new AskagainCallback() {
+                        .askAgain(true)
+                        .askAgainCallback(new AskAgainCallback() {
                             @Override
                             public void showRequestPermission(UserResponse response) {
                                 showDialog(response);
@@ -96,8 +92,8 @@ public class SecondFragment extends Fragment implements FullCallback {
                 PermissionManager.with(getActivity())
                         .key(701)
                         .permission(PermissionEnum.WRITE_EXTERNAL_STORAGE)
-                        .askagain(true)
-                        .askagainCallback(new AskagainCallback() {
+                        .askAgain(true)
+                        .askAgainCallback(new AskAgainCallback() {
                             @Override
                             public void showRequestPermission(UserResponse response) {
                                 showDialog(response);
@@ -118,8 +114,8 @@ public class SecondFragment extends Fragment implements FullCallback {
                 PermissionManager.with(getActivity())
                         .key(601)
                         .permission(PermissionEnum.GET_ACCOUNTS, PermissionEnum.ACCESS_FINE_LOCATION, PermissionEnum.READ_SMS)
-                        .askagain(true)
-                        .askagainCallback(new AskagainCallback() {
+                        .askAgain(true)
+                        .askAgainCallback(new AskAgainCallback() {
                             @Override
                             public void showRequestPermission(UserResponse response) {
                                 showDialog(response);
@@ -140,8 +136,8 @@ public class SecondFragment extends Fragment implements FullCallback {
                 PermissionManager.with(getActivity())
                         .key(2001)
                         .permission(PermissionEnum.WRITE_EXTERNAL_STORAGE)
-                        .askagain(true)
-                        .askagainCallback(new AskagainCallback() {
+                        .askAgain(true)
+                        .askAgainCallback(new AskAgainCallback() {
                             @Override
                             public void showRequestPermission(UserResponse response) {
                                 showDialog(response);
@@ -162,8 +158,8 @@ public class SecondFragment extends Fragment implements FullCallback {
                 PermissionManager.with(getActivity())
                         .key(2101)
                         .permission(PermissionEnum.GET_ACCOUNTS, PermissionEnum.ACCESS_FINE_LOCATION, PermissionEnum.READ_SMS)
-                        .askagain(true)
-                        .askagainCallback(new AskagainCallback() {
+                        .askAgain(true)
+                        .askAgainCallback(new AskAgainCallback() {
                             @Override
                             public void showRequestPermission(UserResponse response) {
                                 showDialog(response);
@@ -188,7 +184,7 @@ public class SecondFragment extends Fragment implements FullCallback {
         });
     }
 
-    private void showDialog(final AskagainCallback.UserResponse response) {
+    private void showDialog(final AskAgainCallback.UserResponse response) {
         new AlertDialog.Builder(getActivity())
                 .setTitle("Permission needed")
                 .setMessage("This app realy need to use this permission, you wont to authorize it?")
