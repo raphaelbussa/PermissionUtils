@@ -1,5 +1,5 @@
 # Permission Utils
-[![Download](https://api.bintray.com/packages/raphaelbussa/maven/permission-utils/images/download.svg) ](https://bintray.com/raphaelbussa/maven/permission-utils/_latestVersion) [![API](https://img.shields.io/badge/API-9%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=9) [![GitHub issues](https://img.shields.io/github/issues/rebus007/PermissionUtils.svg)](https://github.com/rebus007/PermissionUtils/issues) [![GitHub forks](https://img.shields.io/github/forks/rebus007/PermissionUtils.svg)](https://github.com/rebus007/PermissionUtils/network) [![GitHub stars](https://img.shields.io/github/stars/rebus007/PermissionUtils.svg)](https://github.com/rebus007/PermissionUtils/stargazers) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/rebus007/PermissionUtils/master/LICENSE) [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-PermissionUtils-green.svg?style=true)](https://android-arsenal.com/details/1/3951) [![Methods Count](https://img.shields.io/badge/Methods and size-core: 67 | deps: 16651 | 25 KB-e91e63.svg)](http://www.methodscount.com/?lib=rebus%3Apermission-utils%3A1.0.6)
+[![Download](https://api.bintray.com/packages/raphaelbussa/maven/permission-utils/images/download.svg) ](https://bintray.com/raphaelbussa/maven/permission-utils/_latestVersion) [![API](https://img.shields.io/badge/API-9%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=9) [![GitHub issues](https://img.shields.io/github/issues/rebus007/PermissionUtils.svg)](https://github.com/rebus007/PermissionUtils/issues) [![GitHub forks](https://img.shields.io/github/forks/rebus007/PermissionUtils.svg)](https://github.com/rebus007/PermissionUtils/network) [![GitHub stars](https://img.shields.io/github/stars/rebus007/PermissionUtils.svg)](https://github.com/rebus007/PermissionUtils/stargazers) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/rebus007/PermissionUtils/master/LICENSE) [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-PermissionUtils-green.svg?style=true)](https://android-arsenal.com/details/1/3951)
 
 ![Logo](https://raw.githubusercontent.com/rebus007/PermissionUtils/master/web_hi_res_512.png)
 
@@ -91,7 +91,7 @@ Browse the sample code [here](https://github.com/rebus007/PermissionUtils/tree/m
 Browse Javadoc [here](https://rebus007.github.io/PermissionUtils/javadoc/)
 
 ### App using Permission Utils
-If you use this lib [contact me](mailto:raphaelbussa@gmail.com?subject=Permission Utils) and I will add it to the list below:
+If you use this lib [contact me](mailto:raphaelbussa@gmail.com?subject=PermissionUtils) and I will add it to the list below:
 
 ### Developed By
 Raphaël Bussa - [raphaelbussa@gmail.com](mailto:raphaelbussa@gmail.com)
