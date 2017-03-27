@@ -31,6 +31,12 @@ import java.util.ArrayList;
  */
 public interface FullCallback {
 
+    /**
+     * @param permissionsGranted list of permission granted
+     * @param permissionsDenied list of permission denied
+     * @param permissionsDeniedForever list of permission denied forever
+     * @param permissionsAsked list of permission asked
+     */
     void result(ArrayList<PermissionEnum> permissionsGranted, ArrayList<PermissionEnum> permissionsDenied, ArrayList<PermissionEnum> permissionsDeniedForever, ArrayList<PermissionEnum> permissionsAsked);
 
 }

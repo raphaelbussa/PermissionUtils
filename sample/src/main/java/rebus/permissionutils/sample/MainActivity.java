@@ -144,7 +144,7 @@ public class MainActivity extends AppCompatActivity implements FullCallback {
                         .callback(new SimpleCallback() {
                             @Override
                             public void result(boolean allPermissionsGranted) {
-                                Toast.makeText(MainActivity.this, PermissionEnum.GET_ACCOUNTS.toString() + ", " +  PermissionEnum.ACCESS_FINE_LOCATION.toString() + ", " +  PermissionEnum.READ_SMS.toString() + " allPermissionsGranted [" + allPermissionsGranted + "]", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(MainActivity.this, PermissionEnum.GET_ACCOUNTS.toString() + ", " + PermissionEnum.ACCESS_FINE_LOCATION.toString() + ", " + PermissionEnum.READ_SMS.toString() + " allPermissionsGranted [" + allPermissionsGranted + "]", Toast.LENGTH_SHORT).show();
                             }
                         })
                         .ask();
@@ -188,7 +188,7 @@ public class MainActivity extends AppCompatActivity implements FullCallback {
                         .callback(new SmartCallback() {
                             @Override
                             public void result(boolean allPermissionsGranted, boolean somePermissionsDeniedForever) {
-                                Toast.makeText(MainActivity.this, PermissionEnum.GET_ACCOUNTS.toString() + ", " +  PermissionEnum.ACCESS_FINE_LOCATION.toString() + ", " +  PermissionEnum.READ_SMS.toString() + " allPermissionsGranted [" + allPermissionsGranted + "] somePermissionsDeniedForever [" + somePermissionsDeniedForever + "]", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(MainActivity.this, PermissionEnum.GET_ACCOUNTS.toString() + ", " + PermissionEnum.ACCESS_FINE_LOCATION.toString() + ", " + PermissionEnum.READ_SMS.toString() + " allPermissionsGranted [" + allPermissionsGranted + "] somePermissionsDeniedForever [" + somePermissionsDeniedForever + "]", Toast.LENGTH_SHORT).show();
                             }
                         })
                         .ask();
@@ -249,8 +249,15 @@ public class MainActivity extends AppCompatActivity implements FullCallback {
             case R.id.action_settings:
                 PermissionUtils.openApplicationSettings(MainActivity.this, R.class.getPackage().getName());
                 break;
+            case R.id.action_fragment_v4:
+                Intent fragmentV4 = new Intent(MainActivity.this, FragmentActivity.class);
+                fragmentV4.putExtra("IS_FRAGMENT_V4", true);
+                startActivity(fragmentV4);
+                break;
             case R.id.action_fragment:
-                startActivity(new Intent(MainActivity.this, FragmentActivity.class));
+                Intent fragment = new Intent(MainActivity.this, FragmentActivity.class);
+                fragment.putExtra("IS_FRAGMENT_V4", false);
+                startActivity(fragment);
                 break;
             case R.id.action_info:
                 AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);

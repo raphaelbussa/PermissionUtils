@@ -37,7 +37,7 @@ import android.support.v4.content.ContextCompat;
 public class PermissionUtils {
 
     /**
-     * @param context current context
+     * @param context    current context
      * @param permission permission to check
      * @return if permission is granted return true
      */
@@ -46,7 +46,7 @@ public class PermissionUtils {
     }
 
     /**
-     * @param context current context
+     * @param context    current context
      * @param permission all permission you need to check
      * @return if one of permission is not granted return false
      */
@@ -70,12 +70,11 @@ public class PermissionUtils {
     }
 
     /**
-     * @param context current context
+     * @param context     current context
      * @param packageName package name of your app
      */
     public static void openApplicationSettings(Context context, String packageName) {
-        Intent intent = openApplicationSettings(packageName);
-        context.startActivity(intent);
+        context.startActivity(openApplicationSettings(packageName));
     }
 
 }

@@ -29,6 +29,9 @@ package rebus.permissionutils;
  */
 public interface SimpleCallback {
 
+    /**
+     * @param allPermissionsGranted true if all permissions are granted
+     */
     void result(boolean allPermissionsGranted);
 
 }

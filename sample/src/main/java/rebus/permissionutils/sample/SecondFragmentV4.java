@@ -1,11 +1,11 @@
 package rebus.permissionutils.sample;
 
 import android.annotation.SuppressLint;
-import android.app.Fragment;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,7 +24,7 @@ import rebus.permissionutils.PermissionUtils;
 import rebus.permissionutils.SimpleCallback;
 import rebus.permissionutils.SmartCallback;
 
-public class SecondFragment extends Fragment implements FullCallback {
+public class SecondFragmentV4 extends Fragment implements FullCallback {
 
     private Button askOnePermission;
     private Button askThreePermission;
@@ -55,7 +55,7 @@ public class SecondFragment extends Fragment implements FullCallback {
         askOnePermission.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                PermissionManager.with(SecondFragment.this)
+                PermissionManager.with(SecondFragmentV4.this)
                         .key(9001)
                         .permission(PermissionEnum.WRITE_EXTERNAL_STORAGE)
                         .askAgain(true)
@@ -65,7 +65,7 @@ public class SecondFragment extends Fragment implements FullCallback {
                                 showDialog(response);
                             }
                         })
-                        .callback(SecondFragment.this)
+                        .callback(SecondFragmentV4.this)
                         .ask();
             }
         });
@@ -82,7 +82,7 @@ public class SecondFragment extends Fragment implements FullCallback {
                                 showDialog(response);
                             }
                         })
-                        .callback(SecondFragment.this)
+                        .callback(SecondFragmentV4.this)
                         .ask();
             }
         });

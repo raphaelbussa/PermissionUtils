@@ -26,6 +26,7 @@
     <string name="app_name">Permission Utils</string>
     <string name="action_settings">App settings</string>
     <string name="action_fragment">Fragment</string>
+    <string name="action_fragment_v4">Fragment V4</string>
     <string name="action_info">Info</string>
 
 

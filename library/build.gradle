@@ -47,7 +47,7 @@ android {
 }
 
 dependencies {
-    compile "com.android.support:support-v4:${var.supportLib}"
+    compile "com.android.support:support-v13:${var.supportLib}"
 }
 
 publish {

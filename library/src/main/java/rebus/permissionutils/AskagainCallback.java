@@ -29,10 +29,18 @@ package rebus.permissionutils;
  */
 public interface AskAgainCallback {
 
+    /**
+     * @param response user response
+     */
     void showRequestPermission(UserResponse response);
 
     interface UserResponse {
+
+        /**
+         * @param askAgain the response from the user if allow to ask again a permission
+         */
         void result(boolean askAgain);
+
     }
 
 }

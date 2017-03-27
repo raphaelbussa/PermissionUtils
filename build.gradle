@@ -30,10 +30,10 @@ buildscript {
         var = [
                 compileSdk: 25,
                 buildTools: "25.0.2",
-                minSdk    : 9,
+                minSdk    : 13,
                 targetSdk : 25,
-                version   : "1.0.7",
-                supportLib: "25.1.0"
+                version   : "1.0.8",
+                supportLib: "25.3.0"
         ]
     }
 
@@ -41,7 +41,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.2.3'
+        classpath 'com.android.tools.build:gradle:2.3.0'
         classpath 'com.novoda:bintray-release:0.4.0'
     }
 }
