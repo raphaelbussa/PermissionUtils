@@ -1,5 +1,5 @@
 # Permission Utils
-[ ![Download](https://api.bintray.com/packages/raphaelbussa/maven/permission-utils/images/download.svg) ](https://bintray.com/raphaelbussa/maven/permission-utils/_latestVersion) [![API](https://img.shields.io/badge/API-7%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=7) [![GitHub issues](https://img.shields.io/github/issues/rebus007/PermissionUtils.svg)](https://github.com/rebus007/PermissionUtils/issues) [![GitHub forks](https://img.shields.io/github/forks/rebus007/PermissionUtils.svg)](https://github.com/rebus007/PermissionUtils/network) [![GitHub stars](https://img.shields.io/github/stars/rebus007/PermissionUtils.svg)](https://github.com/rebus007/PermissionUtils/stargazers) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/rebus007/PermissionUtils/master/LICENSE) [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-PermissionUtils-green.svg?style=true)](https://android-arsenal.com/details/1/3951)
+[![Download](https://api.bintray.com/packages/raphaelbussa/maven/permission-utils/images/download.svg) ](https://bintray.com/raphaelbussa/maven/permission-utils/_latestVersion) [![API](https://img.shields.io/badge/API-13%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=13) [![GitHub issues](https://img.shields.io/github/issues/rebus007/PermissionUtils.svg)](https://github.com/rebus007/PermissionUtils/issues) [![GitHub forks](https://img.shields.io/github/forks/rebus007/PermissionUtils.svg)](https://github.com/rebus007/PermissionUtils/network) [![GitHub stars](https://img.shields.io/github/stars/rebus007/PermissionUtils.svg)](https://github.com/rebus007/PermissionUtils/stargazers) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/rebus007/PermissionUtils/master/LICENSE) [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-PermissionUtils-green.svg?style=true)](https://android-arsenal.com/details/1/3951)
 
 ![Logo](https://raw.githubusercontent.com/rebus007/PermissionUtils/master/web_hi_res_512.png)
 
@@ -16,7 +16,7 @@ repositories {
 ```
 ```Gradle
 dependencies {
-    compile 'rebus:permission-utils:1.0.7'
+    compile 'rebus:permission-utils:1.0.9'
 }
 ```
 ### How to use
@@ -35,8 +35,8 @@ Now you can ask permission :D
 ```Java
 PermissionManager.with(MainActivity.this)
         .permission(PermissionEnum.WRITE_EXTERNAL_STORAGE)
-        .askagain(true)
-        .askagainCallback(new AskagainCallback() {
+        .askAgain(true)
+        .askAgainCallback(new AskAgainCallback() {
             @Override
             public void showRequestPermission(UserResponse response) {
                     showDialog(response);
@@ -71,7 +71,7 @@ Toast.makeText(MainActivity.this, permissionEnum.toString() + " isGranted [" + g
 ```
 
 #### Callbacks
-You can use two different callback, it depends of your needs.
+You can use three different callback, it depends of your needs.
 
 * FullCallback: gives you all the information on permission requested by you
 * SimpleCallback: returns a boolean that says if all permission requests were permitted
@@ -87,8 +87,11 @@ PermissionUtils.openApplicationSettings(MainActivity.this, R.class.getPackage().
 ### Sample
 Browse the sample code [here](https://github.com/rebus007/PermissionUtils/tree/master/sample)
 
+### Javadoc
+Browse Javadoc [here](https://rebus007.github.io/PermissionUtils/javadoc/)
+
 ### App using Permission Utils
-If you use this lib [contact me](mailto:raphaelbussa@gmail.com?subject=Permission Utils) and I will add it to the list below:
+If you use this lib [contact me](mailto:raphaelbussa@gmail.com?subject=PermissionUtils) and I will add it to the list below:
 
 ### Developed By
 Raphaël Bussa - [raphaelbussa@gmail.com](mailto:raphaelbussa@gmail.com)
