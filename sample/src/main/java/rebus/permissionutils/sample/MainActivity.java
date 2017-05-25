@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  *
- * Copyright (c) 2016 Raphaël Bussa
+ * Copyright (c) 2017 Raphaël Bussa
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -75,7 +75,7 @@ public class MainActivity extends AppCompatActivity implements FullCallback {
         askOnePermission.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                PermissionManager.with(MainActivity.this)
+                PermissionManager.Builder()
                         .key(9000)
                         .permission(PermissionEnum.WRITE_EXTERNAL_STORAGE)
                         .askAgain(true)
@@ -86,13 +86,13 @@ public class MainActivity extends AppCompatActivity implements FullCallback {
                             }
                         })
                         .callback(MainActivity.this)
-                        .ask();
+                        .ask(MainActivity.this);
             }
         });
         askThreePermission.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                PermissionManager.with(MainActivity.this)
+                PermissionManager.Builder()
                         .key(800)
                         .permission(PermissionEnum.GET_ACCOUNTS, PermissionEnum.ACCESS_FINE_LOCATION, PermissionEnum.READ_SMS)
                         .askAgain(true)
@@ -103,13 +103,13 @@ public class MainActivity extends AppCompatActivity implements FullCallback {
                             }
                         })
                         .callback(MainActivity.this)
-                        .ask();
+                        .ask(MainActivity.this);
             }
         });
         askOnePermissionSimple.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                PermissionManager.with(MainActivity.this)
+                PermissionManager.Builder()
                         .key(700)
                         .permission(PermissionEnum.WRITE_EXTERNAL_STORAGE)
                         .askAgain(true)
@@ -125,13 +125,13 @@ public class MainActivity extends AppCompatActivity implements FullCallback {
                                 Toast.makeText(MainActivity.this, PermissionEnum.WRITE_EXTERNAL_STORAGE.toString() + " allPermissionsGranted [" + allPermissionsGranted + "]", Toast.LENGTH_SHORT).show();
                             }
                         })
-                        .ask();
+                        .ask(MainActivity.this);
             }
         });
         askThreePermissionSimple.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                PermissionManager.with(MainActivity.this)
+                PermissionManager.Builder()
                         .key(600)
                         .permission(PermissionEnum.GET_ACCOUNTS, PermissionEnum.ACCESS_FINE_LOCATION, PermissionEnum.READ_SMS)
                         .askAgain(true)
@@ -147,13 +147,13 @@ public class MainActivity extends AppCompatActivity implements FullCallback {
                                 Toast.makeText(MainActivity.this, PermissionEnum.GET_ACCOUNTS.toString() + ", " + PermissionEnum.ACCESS_FINE_LOCATION.toString() + ", " + PermissionEnum.READ_SMS.toString() + " allPermissionsGranted [" + allPermissionsGranted + "]", Toast.LENGTH_SHORT).show();
                             }
                         })
-                        .ask();
+                        .ask(MainActivity.this);
             }
         });
         askOnePermissionSmart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                PermissionManager.with(MainActivity.this)
+                PermissionManager.Builder()
                         .key(2000)
                         .permission(PermissionEnum.WRITE_EXTERNAL_STORAGE)
                         .askAgain(true)
@@ -169,13 +169,13 @@ public class MainActivity extends AppCompatActivity implements FullCallback {
                                 Toast.makeText(MainActivity.this, PermissionEnum.WRITE_EXTERNAL_STORAGE.toString() + " allPermissionsGranted [" + allPermissionsGranted + "] somePermissionsDeniedForever [" + somePermissionsDeniedForever + "]", Toast.LENGTH_SHORT).show();
                             }
                         })
-                        .ask();
+                        .ask(MainActivity.this);
             }
         });
         askThreePermissionSmart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                PermissionManager.with(MainActivity.this)
+                PermissionManager.Builder()
                         .key(2100)
                         .permission(PermissionEnum.GET_ACCOUNTS, PermissionEnum.ACCESS_FINE_LOCATION, PermissionEnum.READ_SMS)
                         .askAgain(true)
@@ -191,7 +191,7 @@ public class MainActivity extends AppCompatActivity implements FullCallback {
                                 Toast.makeText(MainActivity.this, PermissionEnum.GET_ACCOUNTS.toString() + ", " + PermissionEnum.ACCESS_FINE_LOCATION.toString() + ", " + PermissionEnum.READ_SMS.toString() + " allPermissionsGranted [" + allPermissionsGranted + "] somePermissionsDeniedForever [" + somePermissionsDeniedForever + "]", Toast.LENGTH_SHORT).show();
                             }
                         })
-                        .ask();
+                        .ask(MainActivity.this);
             }
         });
         checkPermission.setOnClickListener(new View.OnClickListener() {
@@ -207,7 +207,7 @@ public class MainActivity extends AppCompatActivity implements FullCallback {
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        PermissionManager.handleResult(requestCode, permissions, grantResults);
+        PermissionManager.handleResult(this, requestCode, permissions, grantResults);
     }
 
     @Override

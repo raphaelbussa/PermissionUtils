@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  *
- * Copyright (c) 2016 Raphaël Bussa
+ * Copyright (c) 2017 Raphaël Bussa
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -32,10 +32,10 @@ import java.util.ArrayList;
 public interface FullCallback {
 
     /**
-     * @param permissionsGranted list of permission granted
-     * @param permissionsDenied list of permission denied
+     * @param permissionsGranted       list of permission granted
+     * @param permissionsDenied        list of permission denied
      * @param permissionsDeniedForever list of permission denied forever
-     * @param permissionsAsked list of permission asked
+     * @param permissionsAsked         list of permission asked
      */
     void result(ArrayList<PermissionEnum> permissionsGranted, ArrayList<PermissionEnum> permissionsDenied, ArrayList<PermissionEnum> permissionsDeniedForever, ArrayList<PermissionEnum> permissionsAsked);
 

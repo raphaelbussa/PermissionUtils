@@ -1,3 +1,27 @@
+/*
+ * The MIT License (MIT)
+ *
+ * Copyright (c) 2017 Raphaël Bussa
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+
 package rebus.permissionutils.sample;
 
 import android.annotation.SuppressLint;
@@ -55,7 +79,7 @@ public class SecondFragmentV4 extends Fragment implements FullCallback {
         askOnePermission.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                PermissionManager.with(SecondFragmentV4.this)
+                PermissionManager.Builder()
                         .key(9001)
                         .permission(PermissionEnum.WRITE_EXTERNAL_STORAGE)
                         .askAgain(true)
@@ -66,13 +90,13 @@ public class SecondFragmentV4 extends Fragment implements FullCallback {
                             }
                         })
                         .callback(SecondFragmentV4.this)
-                        .ask();
+                        .ask(SecondFragmentV4.this);
             }
         });
         askThreePermission.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                PermissionManager.with(getActivity())
+                PermissionManager.Builder()
                         .key(801)
                         .permission(PermissionEnum.GET_ACCOUNTS, PermissionEnum.ACCESS_FINE_LOCATION, PermissionEnum.READ_SMS)
                         .askAgain(true)
@@ -83,13 +107,13 @@ public class SecondFragmentV4 extends Fragment implements FullCallback {
                             }
                         })
                         .callback(SecondFragmentV4.this)
-                        .ask();
+                        .ask(SecondFragmentV4.this);
             }
         });
         askOnePermissionSimple.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                PermissionManager.with(getActivity())
+                PermissionManager.Builder()
                         .key(701)
                         .permission(PermissionEnum.WRITE_EXTERNAL_STORAGE)
                         .askAgain(true)
@@ -105,13 +129,13 @@ public class SecondFragmentV4 extends Fragment implements FullCallback {
                                 Toast.makeText(getActivity(), PermissionEnum.WRITE_EXTERNAL_STORAGE.toString() + " allPermissionsGranted [" + allPermissionsGranted + "]", Toast.LENGTH_SHORT).show();
                             }
                         })
-                        .ask();
+                        .ask(SecondFragmentV4.this);
             }
         });
         askThreePermissionSimple.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                PermissionManager.with(getActivity())
+                PermissionManager.Builder()
                         .key(601)
                         .permission(PermissionEnum.GET_ACCOUNTS, PermissionEnum.ACCESS_FINE_LOCATION, PermissionEnum.READ_SMS)
                         .askAgain(true)
@@ -127,13 +151,13 @@ public class SecondFragmentV4 extends Fragment implements FullCallback {
                                 Toast.makeText(getActivity(), PermissionEnum.GET_ACCOUNTS.toString() + ", " + PermissionEnum.ACCESS_FINE_LOCATION.toString() + ", " + PermissionEnum.READ_SMS.toString() + " allPermissionsGranted [" + allPermissionsGranted + "]", Toast.LENGTH_SHORT).show();
                             }
                         })
-                        .ask();
+                        .ask(SecondFragmentV4.this);
             }
         });
         askOnePermissionSmart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                PermissionManager.with(getActivity())
+                PermissionManager.Builder()
                         .key(2001)
                         .permission(PermissionEnum.WRITE_EXTERNAL_STORAGE)
                         .askAgain(true)
@@ -149,13 +173,13 @@ public class SecondFragmentV4 extends Fragment implements FullCallback {
                                 Toast.makeText(getActivity(), PermissionEnum.WRITE_EXTERNAL_STORAGE.toString() + " allPermissionsGranted [" + allPermissionsGranted + "] somePermissionsDeniedForever [" + somePermissionsDeniedForever + "]", Toast.LENGTH_SHORT).show();
                             }
                         })
-                        .ask();
+                        .ask(SecondFragmentV4.this);
             }
         });
         askThreePermissionSmart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                PermissionManager.with(getActivity())
+                PermissionManager.Builder()
                         .key(2101)
                         .permission(PermissionEnum.GET_ACCOUNTS, PermissionEnum.ACCESS_FINE_LOCATION, PermissionEnum.READ_SMS)
                         .askAgain(true)
@@ -171,7 +195,7 @@ public class SecondFragmentV4 extends Fragment implements FullCallback {
                                 Toast.makeText(getActivity(), PermissionEnum.GET_ACCOUNTS.toString() + ", " + PermissionEnum.ACCESS_FINE_LOCATION.toString() + ", " + PermissionEnum.READ_SMS.toString() + " allPermissionsGranted [" + allPermissionsGranted + "] somePermissionsDeniedForever [" + somePermissionsDeniedForever + "]", Toast.LENGTH_SHORT).show();
                             }
                         })
-                        .ask();
+                        .ask(SecondFragmentV4.this);
             }
         });
         checkPermission.setOnClickListener(new View.OnClickListener() {
@@ -206,7 +230,7 @@ public class SecondFragmentV4 extends Fragment implements FullCallback {
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        PermissionManager.handleResult(requestCode, permissions, grantResults);
+        PermissionManager.handleResult(this, requestCode, permissions, grantResults);
     }
 
     @Override

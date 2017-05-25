@@ -1,7 +1,7 @@
 /*
  * The MIT License (MIT)
  *
- * Copyright (c) 2016 Raphaël Bussa
+ * Copyright (c) 2017 Raphaël Bussa
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -29,10 +29,10 @@ buildscript {
     ext {
         var = [
                 compileSdk: 25,
-                buildTools: "25.0.2",
+                buildTools: "25.0.3",
                 minSdk    : 13,
                 targetSdk : 25,
-                version   : "1.0.9",
+                version   : "2.0.0-BETA-1",
                 supportLib: "25.3.1"
         ]
     }
@@ -41,7 +41,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.0'
+        classpath 'com.android.tools.build:gradle:2.3.2'
         classpath 'com.novoda:bintray-release:0.4.0'
     }
 }

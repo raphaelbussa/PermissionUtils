@@ -16,7 +16,7 @@ repositories {
 ```
 ```Gradle
 dependencies {
-    compile 'rebus:permission-utils:1.0.9'
+    compile 'rebus:permission-utils:2.0.0-BETA-1'
 }
 ```
 ### How to use
@@ -27,13 +27,13 @@ First, override onRequestPermissionsResult and call PermissionManager.handleResu
 @Override
 public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
     super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-    PermissionManager.handleResult(requestCode, permissions, grantResults);
+    PermissionManager.handleResult(this, requestCode, permissions, grantResults);
 }
 ```
 
 Now you can ask permission :D
 ```Java
-PermissionManager.with(MainActivity.this)
+PermissionManager.Builder()
         .permission(PermissionEnum.WRITE_EXTERNAL_STORAGE)
         .askAgain(true)
         .askAgainCallback(new AskAgainCallback() {
@@ -47,7 +47,7 @@ PermissionManager.with(MainActivity.this)
             public void result(ArrayList<PermissionEnum> permissionsGranted, ArrayList<PermissionEnum> permissionsDenied, ArrayList<PermissionEnum> permissionsDeniedForever, ArrayList<PermissionEnum> permissionsAsked) {
                 }
             })
-        .ask();
+        .ask(this);
 ```
 or more permission
 ```Java
@@ -102,7 +102,7 @@ Raphaël Bussa - [raphaelbussa@gmail.com](mailto:raphaelbussa@gmail.com)
 ```
 The MIT License (MIT)
 
-Copyright (c) 2016 Raphaël Bussa
+Copyright (c) 2017 Raphaël Bussa
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
