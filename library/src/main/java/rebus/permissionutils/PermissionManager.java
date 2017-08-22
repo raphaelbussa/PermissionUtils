@@ -66,9 +66,9 @@ public class PermissionManager {
     }
 
     /**
-     * @param activity target activity
-     * @param requestCode requestCode
-     * @param permissions permissions
+     * @param activity     target activity
+     * @param requestCode  requestCode
+     * @param permissions  permissions
      * @param grantResults grantResults
      */
     public static void handleResult(@NonNull android.app.Activity activity, int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
@@ -76,9 +76,9 @@ public class PermissionManager {
     }
 
     /**
-     * @param v4fragment target v4 fragment
-     * @param requestCode requestCode
-     * @param permissions permissions
+     * @param v4fragment   target v4 fragment
+     * @param requestCode  requestCode
+     * @param permissions  permissions
      * @param grantResults grantResults
      */
     public static void handleResult(@NonNull android.support.v4.app.Fragment v4fragment, int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
@@ -86,9 +86,9 @@ public class PermissionManager {
     }
 
     /**
-     * @param fragment target fragment
-     * @param requestCode requestCode
-     * @param permissions permissions
+     * @param fragment     target fragment
+     * @param requestCode  requestCode
+     * @param permissions  permissions
      * @param grantResults grantResults
      */
     public static void handleResult(@NonNull android.app.Fragment fragment, int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
@@ -231,7 +231,7 @@ public class PermissionManager {
 
     /**
      * @param activity target activity
-     * just start all permission manager
+     *                 just start all permission manager
      */
     public void ask(android.app.Activity activity) {
         ask(activity, null, null);
@@ -239,7 +239,7 @@ public class PermissionManager {
 
     /**
      * @param v4fragment target v4 fragment
-     * just start all permission manager
+     *                   just start all permission manager
      */
     public void ask(android.support.v4.app.Fragment v4fragment) {
         ask(null, v4fragment, null);
@@ -247,7 +247,7 @@ public class PermissionManager {
 
     /**
      * @param fragment target fragment
-     * just start all permission manager
+     *                 just start all permission manager
      */
     public void ask(android.app.Fragment fragment) {
         ask(null, null, fragment);

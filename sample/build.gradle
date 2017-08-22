@@ -41,10 +41,14 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    lintOptions {
+        abortOnError false
+    }
 }
 
 dependencies {
-    compile project(':library')
+    //compile project(':library')
+    compile "rebus:permission-utils:${var.version}"
     compile "com.android.support:appcompat-v7:${var.supportLib}"
     compile "com.android.support:design:${var.supportLib}"
 }
