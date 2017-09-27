@@ -47,8 +47,8 @@ android {
 }
 
 dependencies {
-    //compile project(':library')
-    compile "rebus:permission-utils:${var.version}"
+    compile project(':library')
+    //compile "rebus:permission-utils:${var.version}"
     compile "com.android.support:appcompat-v7:${var.supportLib}"
     compile "com.android.support:design:${var.supportLib}"
 }
