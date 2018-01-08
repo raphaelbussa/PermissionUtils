@@ -28,21 +28,23 @@ buildscript {
 
     ext {
         var = [
-                compileSdk: 26,
-                buildTools: "26.0.1",
+                compileSdk: 27,
+                buildTools: "27.0.1",
                 minSdk    : 14,
-                targetSdk : 26,
-                version   : "2.0.1",
-                supportLib: "26.1.0"
+                targetSdk : 27,
+                version   : "2.0.5",
+                supportLib: "27.0.2"
         ]
     }
 
     repositories {
         jcenter()
+        maven { url "https://maven.google.com" }
     }
+
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.3.3'
-        classpath 'com.novoda:bintray-release:0.5.0'
+        classpath 'com.android.tools.build:gradle:3.0.1'
+        classpath 'com.novoda:bintray-release:0.6.1'
     }
 }
 
