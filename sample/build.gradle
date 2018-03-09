@@ -25,8 +25,8 @@
 apply plugin: 'com.android.application'
 
 android {
+
     compileSdkVersion var.compileSdk
-    buildToolsVersion var.buildTools
 
     defaultConfig {
         applicationId "rebus.permissionutils.sample"
@@ -48,7 +48,6 @@ android {
 
 dependencies {
     compile project(':library')
-    //compile "rebus:permission-utils:${var.version}"
     compile "com.android.support:appcompat-v7:${var.supportLib}"
     compile "com.android.support:design:${var.supportLib}"
 }
