@@ -50,7 +50,7 @@ android {
 }
 
 dependencies {
-    compile "com.android.support:support-v13:${var.supportLib}"
+    implementation "com.android.support:support-v13:${var.supportLib}"
 }
 
 publish {

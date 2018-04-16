@@ -47,7 +47,7 @@ android {
 }
 
 dependencies {
-    compile project(':library')
-    compile "com.android.support:appcompat-v7:${var.supportLib}"
-    compile "com.android.support:design:${var.supportLib}"
+    implementation project(':library')
+    implementation "com.android.support:appcompat-v7:${var.supportLib}"
+    implementation "com.android.support:design:${var.supportLib}"
 }
