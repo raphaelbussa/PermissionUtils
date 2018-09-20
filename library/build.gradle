@@ -23,7 +23,7 @@
  */
 
 apply plugin: 'com.android.library'
-apply plugin: 'com.novoda.bintray-release'
+apply plugin: "guru.stefma.bintrayrelease"
 
 android {
 
@@ -50,14 +50,15 @@ android {
 }
 
 dependencies {
-    implementation "com.android.support:support-v13:${var.supportLib}"
+    implementation "androidx.legacy:legacy-support-v13:${var.supportLib}"
+    implementation "androidx.fragment:fragment:${var.supportLib}"
 }
 
+version = '3.0.0'
+group = 'rebus'
 publish {
     userOrg = 'raphaelbussa'
-    groupId = 'rebus'
     artifactId = 'permission-utils'
-    publishVersion = "${var.version}"
     desc = 'Check marshmallow permission easily'
-    website = 'https://github.com/rebus007/PermissionUtils'
+    website = 'https://rebus007.github.io/PermissionUtils/'
 }

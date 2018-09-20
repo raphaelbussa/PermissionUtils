@@ -29,11 +29,13 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
-import android.support.v4.content.ContextCompat;
+
+import androidx.core.content.ContextCompat;
 
 /**
  * Created by raphaelbussa on 22/06/16.
  */
+@SuppressWarnings({"unused", "WeakerAccess"})
 public class PermissionUtils {
 
     /**

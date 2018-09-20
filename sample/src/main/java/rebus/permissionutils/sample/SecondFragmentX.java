@@ -27,10 +27,6 @@ package rebus.permissionutils.sample;
 import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,6 +36,10 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
+import androidx.fragment.app.Fragment;
 import rebus.permissionutils.AskAgainCallback;
 import rebus.permissionutils.FullCallback;
 import rebus.permissionutils.PermissionEnum;
@@ -48,7 +48,7 @@ import rebus.permissionutils.PermissionUtils;
 import rebus.permissionutils.SimpleCallback;
 import rebus.permissionutils.SmartCallback;
 
-public class SecondFragmentV4 extends Fragment implements FullCallback {
+public class SecondFragmentX extends Fragment implements FullCallback {
 
     private Button askOnePermission;
     private Button askThreePermission;
@@ -61,20 +61,20 @@ public class SecondFragmentV4 extends Fragment implements FullCallback {
     @SuppressLint("InflateParams")
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_second, null);
-        askOnePermission = (Button) view.findViewById(R.id.ask_one_permission);
-        askThreePermission = (Button) view.findViewById(R.id.ask_three_permission);
-        checkPermission = (Button) view.findViewById(R.id.check_permission);
-        askOnePermissionSimple = (Button) view.findViewById(R.id.ask_one_permission_simple);
-        askThreePermissionSimple = (Button) view.findViewById(R.id.ask_three_permission_simple);
-        askOnePermissionSmart = (Button) view.findViewById(R.id.ask_one_permission_smart);
-        askThreePermissionSmart = (Button) view.findViewById(R.id.ask_three_permission_smart);
+        askOnePermission = view.findViewById(R.id.ask_one_permission);
+        askThreePermission = view.findViewById(R.id.ask_three_permission);
+        checkPermission = view.findViewById(R.id.check_permission);
+        askOnePermissionSimple = view.findViewById(R.id.ask_one_permission_simple);
+        askThreePermissionSimple = view.findViewById(R.id.ask_three_permission_simple);
+        askOnePermissionSmart = view.findViewById(R.id.ask_one_permission_smart);
+        askThreePermissionSmart = view.findViewById(R.id.ask_three_permission_smart);
         return view;
     }
 
     @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         askOnePermission.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,8 +89,8 @@ public class SecondFragmentV4 extends Fragment implements FullCallback {
                                 showDialog(response);
                             }
                         })
-                        .callback(SecondFragmentV4.this)
-                        .ask(SecondFragmentV4.this);
+                        .callback(SecondFragmentX.this)
+                        .ask(SecondFragmentX.this);
             }
         });
         askThreePermission.setOnClickListener(new View.OnClickListener() {
@@ -106,8 +106,8 @@ public class SecondFragmentV4 extends Fragment implements FullCallback {
                                 showDialog(response);
                             }
                         })
-                        .callback(SecondFragmentV4.this)
-                        .ask(SecondFragmentV4.this);
+                        .callback(SecondFragmentX.this)
+                        .ask(SecondFragmentX.this);
             }
         });
         askOnePermissionSimple.setOnClickListener(new View.OnClickListener() {
@@ -129,7 +129,7 @@ public class SecondFragmentV4 extends Fragment implements FullCallback {
                                 Toast.makeText(getActivity(), PermissionEnum.WRITE_EXTERNAL_STORAGE.toString() + " allPermissionsGranted [" + allPermissionsGranted + "]", Toast.LENGTH_SHORT).show();
                             }
                         })
-                        .ask(SecondFragmentV4.this);
+                        .ask(SecondFragmentX.this);
             }
         });
         askThreePermissionSimple.setOnClickListener(new View.OnClickListener() {
@@ -151,7 +151,7 @@ public class SecondFragmentV4 extends Fragment implements FullCallback {
                                 Toast.makeText(getActivity(), PermissionEnum.GET_ACCOUNTS.toString() + ", " + PermissionEnum.ACCESS_FINE_LOCATION.toString() + ", " + PermissionEnum.READ_SMS.toString() + " allPermissionsGranted [" + allPermissionsGranted + "]", Toast.LENGTH_SHORT).show();
                             }
                         })
-                        .ask(SecondFragmentV4.this);
+                        .ask(SecondFragmentX.this);
             }
         });
         askOnePermissionSmart.setOnClickListener(new View.OnClickListener() {
@@ -173,7 +173,7 @@ public class SecondFragmentV4 extends Fragment implements FullCallback {
                                 Toast.makeText(getActivity(), PermissionEnum.WRITE_EXTERNAL_STORAGE.toString() + " allPermissionsGranted [" + allPermissionsGranted + "] somePermissionsDeniedForever [" + somePermissionsDeniedForever + "]", Toast.LENGTH_SHORT).show();
                             }
                         })
-                        .ask(SecondFragmentV4.this);
+                        .ask(SecondFragmentX.this);
             }
         });
         askThreePermissionSmart.setOnClickListener(new View.OnClickListener() {
@@ -195,7 +195,7 @@ public class SecondFragmentV4 extends Fragment implements FullCallback {
                                 Toast.makeText(getActivity(), PermissionEnum.GET_ACCOUNTS.toString() + ", " + PermissionEnum.ACCESS_FINE_LOCATION.toString() + ", " + PermissionEnum.READ_SMS.toString() + " allPermissionsGranted [" + allPermissionsGranted + "] somePermissionsDeniedForever [" + somePermissionsDeniedForever + "]", Toast.LENGTH_SHORT).show();
                             }
                         })
-                        .ask(SecondFragmentV4.this);
+                        .ask(SecondFragmentX.this);
             }
         });
         checkPermission.setOnClickListener(new View.OnClickListener() {
@@ -209,6 +209,7 @@ public class SecondFragmentV4 extends Fragment implements FullCallback {
     }
 
     private void showDialog(final AskAgainCallback.UserResponse response) {
+        if (getActivity() == null) return;
         new AlertDialog.Builder(getActivity())
                 .setTitle("Permission needed")
                 .setMessage("This app realy need to use this permission, you wont to authorize it?")
@@ -233,6 +234,7 @@ public class SecondFragmentV4 extends Fragment implements FullCallback {
         PermissionManager.handleResult(this, requestCode, permissions, grantResults);
     }
 
+    @SuppressWarnings("ToArrayCallWithZeroLengthArrayArgument")
     @Override
     public void result(ArrayList<PermissionEnum> permissionsGranted, ArrayList<PermissionEnum> permissionsDenied, ArrayList<PermissionEnum> permissionsDeniedForever, ArrayList<PermissionEnum> permissionsAsked) {
         List<String> msg = new ArrayList<>();
@@ -249,6 +251,7 @@ public class SecondFragmentV4 extends Fragment implements FullCallback {
             msg.add(permissionEnum.toString() + " [Asked]");
         }
         String[] items = msg.toArray(new String[msg.size()]);
+        if (getActivity() == null) return;
         new AlertDialog.Builder(getActivity())
                 .setTitle("Permission result")
                 .setItems(items, new DialogInterface.OnClickListener() {

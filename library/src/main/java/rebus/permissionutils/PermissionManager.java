@@ -26,16 +26,18 @@ package rebus.permissionutils;
 
 import android.content.pm.PackageManager;
 import android.os.Build;
-import android.support.annotation.NonNull;
-import android.support.v13.app.FragmentCompat;
-import android.support.v4.app.ActivityCompat;
 
 import java.util.ArrayList;
 import java.util.Collections;
 
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
+import androidx.legacy.app.FragmentCompat;
+
 /**
  * Created by raphaelbussa on 22/06/16.
  */
+@SuppressWarnings("unused")
 public class PermissionManager {
 
     private static PermissionManager instance;
@@ -76,13 +78,13 @@ public class PermissionManager {
     }
 
     /**
-     * @param v4fragment   target v4 fragment
+     * @param fragmentX    target v4 fragment
      * @param requestCode  requestCode
      * @param permissions  permissions
      * @param grantResults grantResults
      */
-    public static void handleResult(@NonNull android.support.v4.app.Fragment v4fragment, int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        handleResult(null, v4fragment, null, requestCode, permissions, grantResults);
+    public static void handleResult(@NonNull androidx.fragment.app.Fragment fragmentX, int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        handleResult(null, fragmentX, null, requestCode, permissions, grantResults);
     }
 
     /**
@@ -91,11 +93,13 @@ public class PermissionManager {
      * @param permissions  permissions
      * @param grantResults grantResults
      */
+    @Deprecated
     public static void handleResult(@NonNull android.app.Fragment fragment, int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         handleResult(null, null, fragment, requestCode, permissions, grantResults);
     }
 
-    private static void handleResult(final android.app.Activity activity, final android.support.v4.app.Fragment v4fragment, final android.app.Fragment fragment, int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+    @SuppressWarnings("deprecation")
+    private static void handleResult(final android.app.Activity activity, final androidx.fragment.app.Fragment fragmentX, final android.app.Fragment fragment, int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         if (instance == null) return;
         if (requestCode == instance.key) {
             for (int i = 0; i < permissions.length; i++) {
@@ -107,8 +111,8 @@ public class PermissionManager {
                         permissionsDeniedForever = ActivityCompat.shouldShowRequestPermissionRationale(activity, permissions[i]);
                     } else if (fragment != null) {
                         permissionsDeniedForever = FragmentCompat.shouldShowRequestPermissionRationale(fragment, permissions[i]);
-                    } else if (v4fragment != null) {
-                        permissionsDeniedForever = v4fragment.shouldShowRequestPermissionRationale(permissions[i]);
+                    } else if (fragmentX != null) {
+                        permissionsDeniedForever = fragmentX.shouldShowRequestPermissionRationale(permissions[i]);
                     }
                     if (!permissionsDeniedForever) {
                         instance.permissionsDeniedForever.add(PermissionEnum.fromManifestPermission(permissions[i]));
@@ -124,14 +128,14 @@ public class PermissionManager {
                         @Override
                         public void result(boolean askAgain) {
                             if (askAgain) {
-                                instance.ask(activity, v4fragment, fragment);
+                                instance.ask(activity, fragmentX, fragment);
                             } else {
                                 instance.showResult();
                             }
                         }
                     });
                 } else {
-                    instance.ask(activity, v4fragment, fragment);
+                    instance.ask(activity, fragmentX, fragment);
                 }
             } else {
                 instance.showResult();
@@ -238,25 +242,27 @@ public class PermissionManager {
     }
 
     /**
-     * @param v4fragment target v4 fragment
-     *                   just start all permission manager
+     * @param fragmentX target v4 fragment
+     *                  just start all permission manager
      */
-    public void ask(android.support.v4.app.Fragment v4fragment) {
-        ask(null, v4fragment, null);
+    public void ask(androidx.fragment.app.Fragment fragmentX) {
+        ask(null, fragmentX, null);
     }
 
     /**
      * @param fragment target fragment
      *                 just start all permission manager
      */
+    @Deprecated
     public void ask(android.app.Fragment fragment) {
         ask(null, null, fragment);
     }
 
-    private void ask(android.app.Activity activity, android.support.v4.app.Fragment v4fragment, android.app.Fragment fragment) {
+    @SuppressWarnings("deprecation")
+    private void ask(android.app.Activity activity, androidx.fragment.app.Fragment fragmentX, android.app.Fragment fragment) {
         initArray();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            String[] permissionToAsk = permissionToAsk(activity, v4fragment, fragment);
+            String[] permissionToAsk = permissionToAsk(activity, fragmentX, fragment);
             if (permissionToAsk.length == 0) {
                 showResult();
             } else {
@@ -264,8 +270,8 @@ public class PermissionManager {
                     ActivityCompat.requestPermissions(activity, permissionToAsk, key);
                 } else if (fragment != null) {
                     FragmentCompat.requestPermissions(fragment, permissionToAsk, key);
-                } else if (v4fragment != null) {
-                    v4fragment.requestPermissions(permissionToAsk, key);
+                } else if (fragmentX != null) {
+                    fragmentX.requestPermissions(permissionToAsk, key);
                 }
             }
         } else {
@@ -277,8 +283,9 @@ public class PermissionManager {
     /**
      * @return permission that you really need to ask
      */
+    @SuppressWarnings("ToArrayCallWithZeroLengthArrayArgument")
     @NonNull
-    private String[] permissionToAsk(android.app.Activity activity, android.support.v4.app.Fragment v4fragment, android.app.Fragment fragment) {
+    private String[] permissionToAsk(android.app.Activity activity, androidx.fragment.app.Fragment fragmentX, android.app.Fragment fragment) {
         ArrayList<String> permissionToAsk = new ArrayList<>();
         for (PermissionEnum permission : permissions) {
             boolean isGranted = false;
@@ -286,8 +293,8 @@ public class PermissionManager {
                 isGranted = PermissionUtils.isGranted(activity, permission);
             } else if (fragment != null) {
                 isGranted = PermissionUtils.isGranted(fragment.getActivity(), permission);
-            } else if (v4fragment != null) {
-                isGranted = PermissionUtils.isGranted(v4fragment.getActivity(), permission);
+            } else if (fragmentX != null) {
+                isGranted = PermissionUtils.isGranted(fragmentX.getActivity(), permission);
             }
             if (!isGranted) {
                 permissionToAsk.add(permission.toString());

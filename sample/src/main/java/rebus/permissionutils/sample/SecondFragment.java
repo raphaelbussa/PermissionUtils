@@ -28,9 +28,6 @@ import android.annotation.SuppressLint;
 import android.app.Fragment;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,6 +37,9 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import rebus.permissionutils.AskAgainCallback;
 import rebus.permissionutils.FullCallback;
 import rebus.permissionutils.PermissionEnum;
@@ -63,13 +63,13 @@ public class SecondFragment extends Fragment implements FullCallback {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_second, null);
-        askOnePermission = (Button) view.findViewById(R.id.ask_one_permission);
-        askThreePermission = (Button) view.findViewById(R.id.ask_three_permission);
-        checkPermission = (Button) view.findViewById(R.id.check_permission);
-        askOnePermissionSimple = (Button) view.findViewById(R.id.ask_one_permission_simple);
-        askThreePermissionSimple = (Button) view.findViewById(R.id.ask_three_permission_simple);
-        askOnePermissionSmart = (Button) view.findViewById(R.id.ask_one_permission_smart);
-        askThreePermissionSmart = (Button) view.findViewById(R.id.ask_three_permission_smart);
+        askOnePermission = view.findViewById(R.id.ask_one_permission);
+        askThreePermission = view.findViewById(R.id.ask_three_permission);
+        checkPermission = view.findViewById(R.id.check_permission);
+        askOnePermissionSimple = view.findViewById(R.id.ask_one_permission_simple);
+        askThreePermissionSimple = view.findViewById(R.id.ask_three_permission_simple);
+        askOnePermissionSmart = view.findViewById(R.id.ask_one_permission_smart);
+        askThreePermissionSmart = view.findViewById(R.id.ask_three_permission_smart);
         return view;
     }
 
@@ -233,6 +233,7 @@ public class SecondFragment extends Fragment implements FullCallback {
         PermissionManager.handleResult(this, requestCode, permissions, grantResults);
     }
 
+    @SuppressWarnings("ToArrayCallWithZeroLengthArrayArgument")
     @Override
     public void result(ArrayList<PermissionEnum> permissionsGranted, ArrayList<PermissionEnum> permissionsDenied, ArrayList<PermissionEnum> permissionsDeniedForever, ArrayList<PermissionEnum> permissionsAsked) {
         List<String> msg = new ArrayList<>();

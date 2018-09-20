@@ -26,12 +26,12 @@ package rebus.permissionutils;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
-import android.support.annotation.NonNull;
+
+import androidx.annotation.NonNull;
 
 /**
  * Created by raphaelbussa on 22/06/16.
  */
-@SuppressWarnings("SpellCheckingInspection")
 @SuppressLint("InlinedApi")
 public enum PermissionEnum {
 
@@ -87,6 +87,7 @@ public enum PermissionEnum {
         return NULL;
     }
 
+    @NonNull
     @Override
     public String toString() {
         return permission;

@@ -28,9 +28,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
 import android.text.Spanned;
 import android.text.method.LinkMovementMethod;
@@ -44,6 +41,9 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 import rebus.permissionutils.AskAgainCallback;
 import rebus.permissionutils.FullCallback;
 import rebus.permissionutils.PermissionEnum;
@@ -63,14 +63,14 @@ public class MainActivity extends AppCompatActivity implements FullCallback {
             getSupportActionBar().setSubtitle("Activity");
         }
 
-        Button askOnePermission = (Button) findViewById(R.id.ask_one_permission);
-        Button askThreePermission = (Button) findViewById(R.id.ask_three_permission);
-        Button askOnePermissionSimple = (Button) findViewById(R.id.ask_one_permission_simple);
-        Button askThreePermissionSimple = (Button) findViewById(R.id.ask_three_permission_simple);
-        Button askOnePermissionSmart = (Button) findViewById(R.id.ask_one_permission_smart);
-        Button askThreePermissionSmart = (Button) findViewById(R.id.ask_three_permission_smart);
+        Button askOnePermission = findViewById(R.id.ask_one_permission);
+        Button askThreePermission = findViewById(R.id.ask_three_permission);
+        Button askOnePermissionSimple = findViewById(R.id.ask_one_permission_simple);
+        Button askThreePermissionSimple = findViewById(R.id.ask_three_permission_simple);
+        Button askOnePermissionSmart = findViewById(R.id.ask_one_permission_smart);
+        Button askThreePermissionSmart = findViewById(R.id.ask_three_permission_smart);
 
-        Button checkPermission = (Button) findViewById(R.id.check_permission);
+        Button checkPermission = findViewById(R.id.check_permission);
 
         askOnePermission.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -210,6 +210,7 @@ public class MainActivity extends AppCompatActivity implements FullCallback {
         PermissionManager.handleResult(this, requestCode, permissions, grantResults);
     }
 
+    @SuppressWarnings("ToArrayCallWithZeroLengthArrayArgument")
     @Override
     public void result(ArrayList<PermissionEnum> permissionsGranted, ArrayList<PermissionEnum> permissionsDenied, ArrayList<PermissionEnum> permissionsDeniedForever, ArrayList<PermissionEnum> permissionsAsked) {
         List<String> msg = new ArrayList<>();
@@ -243,6 +244,7 @@ public class MainActivity extends AppCompatActivity implements FullCallback {
         return super.onCreateOptionsMenu(menu);
     }
 
+    @SuppressWarnings("ConstantConditions")
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -251,12 +253,12 @@ public class MainActivity extends AppCompatActivity implements FullCallback {
                 break;
             case R.id.action_fragment_v4:
                 Intent fragmentV4 = new Intent(MainActivity.this, FragmentActivity.class);
-                fragmentV4.putExtra("IS_FRAGMENT_V4", true);
+                fragmentV4.putExtra("IS_FRAGMENT_X", true);
                 startActivity(fragmentV4);
                 break;
             case R.id.action_fragment:
                 Intent fragment = new Intent(MainActivity.this, FragmentActivity.class);
-                fragment.putExtra("IS_FRAGMENT_V4", false);
+                fragment.putExtra("IS_FRAGMENT_X", false);
                 startActivity(fragment);
                 break;
             case R.id.action_info:
@@ -266,7 +268,7 @@ public class MainActivity extends AppCompatActivity implements FullCallback {
                 builder.setPositiveButton(getString(R.string.close), null);
                 AlertDialog dialog = builder.create();
                 dialog.show();
-                TextView textView = (TextView) dialog.findViewById(android.R.id.message);
+                TextView textView = dialog.findViewById(android.R.id.message);
                 if (textView != null) {
                     textView.setMovementMethod(LinkMovementMethod.getInstance());
                 }
@@ -295,6 +297,7 @@ public class MainActivity extends AppCompatActivity implements FullCallback {
                 .show();
     }
 
+    @SuppressWarnings("deprecation")
     private Spanned fromHtml(String value) {
         if (value == null) {
             value = "";

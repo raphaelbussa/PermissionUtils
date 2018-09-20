@@ -25,31 +25,33 @@
 package rebus.permissionutils.sample;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class FragmentActivity extends AppCompatActivity {
 
     private final static String SECOND_FRAGMENT = "SECOND_FRAGMENT";
-    private final static String SECOND_FRAGMENT_V4 = "SECOND_FRAGMENT_V4";
+    private final static String SECOND_FRAGMENT_X = "SECOND_FRAGMENT_X";
 
+    @SuppressWarnings("ConstantConditions")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fragment);
 
-        boolean isFragmentV4 = getIntent().getExtras().getBoolean("IS_FRAGMENT_V4");
+        boolean isFragmentX = getIntent().getExtras().getBoolean("IS_FRAGMENT_X");
 
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar().setSubtitle(isFragmentV4 ? "Fragment V4" : "Fragment");
+            getSupportActionBar().setSubtitle(isFragmentX ? "Fragment V4" : "Fragment");
         }
 
-        if (isFragmentV4) {
+        if (isFragmentX) {
             if (savedInstanceState == null) {
-                android.support.v4.app.Fragment fragment = android.support.v4.app.Fragment.instantiate(this, SecondFragmentV4.class.getName());
+                androidx.fragment.app.Fragment fragment = androidx.fragment.app.Fragment.instantiate(this, SecondFragmentX.class.getName());
                 getSupportFragmentManager().beginTransaction()
-                        .add(R.id.container, fragment, SECOND_FRAGMENT_V4)
+                        .add(R.id.container, fragment, SECOND_FRAGMENT_X)
                         .commit();
             }
         } else {
