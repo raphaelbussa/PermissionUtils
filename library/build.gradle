@@ -50,11 +50,11 @@ android {
 }
 
 dependencies {
-    implementation "androidx.legacy:legacy-support-v13:${var.supportLib}"
-    implementation "androidx.fragment:fragment:${var.supportLib}"
+    implementation 'androidx.legacy:legacy-support-v13:1.0.0'
+    implementation 'androidx.fragment:fragment:1.0.0'
 }
 
-version = '3.0.0'
+version = '3.0.2'
 group = 'rebus'
 publish {
     userOrg = 'raphaelbussa'

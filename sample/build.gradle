@@ -48,6 +48,6 @@ android {
 
 dependencies {
     implementation project(':library')
-    implementation "com.google.android.material:material:${var.supportLib}"
-    implementation "androidx.appcompat:appcompat:${var.supportLib}"
+    implementation 'com.google.android.material:material:1.0.0'
+    implementation 'androidx.appcompat:appcompat:1.0.2'
 }
