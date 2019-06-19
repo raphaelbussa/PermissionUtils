@@ -85,7 +85,7 @@ PermissionUtils.openApplicationSettings(MainActivity.this, R.class.getPackage().
 # That's all folks!
 
 ### Sample
-Browse the sample code [here](https://raphaelbussa.com/raphaelbussa/PermissionUtils/tree/master/sample)
+Browse the sample code [here](https://github.com/raphaelbussa/PermissionUtils/tree/master/sample)
 
 ### Javadoc
 Browse Javadoc [here](https://raphaelbussa.github.io/PermissionUtils/javadoc/)
