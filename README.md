@@ -1,7 +1,7 @@
 # Permission Utils
-[![Download](https://api.bintray.com/packages/raphaelbussa/maven/permission-utils/images/download.svg) ](https://bintray.com/raphaelbussa/maven/permission-utils/_latestVersion) [![API](https://img.shields.io/badge/API-14%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=14) [![GitHub issues](https://img.shields.io/github/issues/rebus007/PermissionUtils.svg)](https://github.com/rebus007/PermissionUtils/issues) [![GitHub forks](https://img.shields.io/github/forks/rebus007/PermissionUtils.svg)](https://github.com/rebus007/PermissionUtils/network) [![GitHub stars](https://img.shields.io/github/stars/rebus007/PermissionUtils.svg)](https://github.com/rebus007/PermissionUtils/stargazers) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/rebus007/PermissionUtils/master/LICENSE) [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-PermissionUtils-green.svg?style=true)](https://android-arsenal.com/details/1/3951)
+[![Download](https://api.bintray.com/packages/raphaelbussa/maven/permission-utils/images/download.svg) ](https://bintray.com/raphaelbussa/maven/permission-utils/_latestVersion) [![API](https://img.shields.io/badge/API-14%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=14) [![GitHub issues](https://img.shields.io/github/issues/raphaelbussa/PermissionUtils.svg)](https://github.com/raphaelbussa/PermissionUtils/issues) [![GitHub forks](https://img.shields.io/github/forks/raphaelbussa/PermissionUtils.svg)](https://github.com/raphaelbussa/PermissionUtils/network) [![GitHub stars](https://img.shields.io/github/stars/raphaelbussa/PermissionUtils.svg)](https://github.com/raphaelbussa/PermissionUtils/stargazers) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/raphaelbussa/PermissionUtils/master/LICENSE) [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-PermissionUtils-green.svg?style=true)](https://android-arsenal.com/details/1/3951)
 
-![Logo](https://raw.githubusercontent.com/rebus007/PermissionUtils/master/sample/src/main/ic_launcher-web.png)
+![Logo](https://raw.githubusercontent.com/raphaelbussa/PermissionUtils/master/sample/src/main/ic_launcher-web.png)
 
 Check marshmallow permission easily
 
@@ -85,10 +85,10 @@ PermissionUtils.openApplicationSettings(MainActivity.this, R.class.getPackage().
 # That's all folks!
 
 ### Sample
-Browse the sample code [here](https://github.com/rebus007/PermissionUtils/tree/master/sample)
+Browse the sample code [here](https://raphaelbussa.com/raphaelbussa/PermissionUtils/tree/master/sample)
 
 ### Javadoc
-Browse Javadoc [here](https://rebus007.github.io/PermissionUtils/javadoc/)
+Browse Javadoc [here](https://raphaelbussa.github.io/PermissionUtils/javadoc/)
 
 ### App using Permission Utils
 If you use this lib [contact me](mailto:raphaelbussa@gmail.com?subject=PermissionUtils) and I will add it to the list below:
@@ -96,13 +96,13 @@ If you use this lib [contact me](mailto:raphaelbussa@gmail.com?subject=Permissio
 ### Developed By
 Raphaël Bussa - [raphaelbussa@gmail.com](mailto:raphaelbussa@gmail.com)
 
-[ ![Twitter](https://raw.githubusercontent.com/rebus007/PermissionUtils/master/img/social/twitter-icon.png) ](https://twitter.com/rebus_007)[ ![Google Plus](https://raw.githubusercontent.com/rebus007/PermissionUtils/master/img/social/google-plus-icon.png) ](https://plus.google.com/+RaphaelBussa/posts)[ ![Linkedin](https://raw.githubusercontent.com/rebus007/PermissionUtils/master/img/social/linkedin-icon.png) ](https://www.linkedin.com/in/rebus007)
+[ ![Twitter](https://raw.githubusercontent.com/raphaelbussa/PermissionUtils/master/img/social/twitter-icon.png) ](https://twitter.com/raphaelbussa)[ ![Linkedin](https://raw.githubusercontent.com/raphaelbussa/PermissionUtils/master/img/social/linkedin-icon.png) ](https://www.linkedin.com/in/raphaelbussa)
 
 ### License
 ```
 The MIT License (MIT)
 
-Copyright (c) 2017 Raphaël Bussa
+Copyright (c) 2017-2019 Raphaël Bussa
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
