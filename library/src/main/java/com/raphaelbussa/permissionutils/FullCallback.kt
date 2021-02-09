@@ -28,14 +28,14 @@ import java.util.*
 /**
  * Created by com.raphaelbussa on 22/06/16.
  */
-fun interface FullCallback {
+public fun interface FullCallback {
     /**
      * @param permissionsGranted       list of permission granted
      * @param permissionsDenied        list of permission denied
      * @param permissionsDeniedForever list of permission denied forever
      * @param permissionsAsked         list of permission asked
      */
-    fun result(
+    public fun result(
         permissionsGranted: List<String>,
         permissionsDenied: List<String>,
         permissionsDeniedForever: List<String>,

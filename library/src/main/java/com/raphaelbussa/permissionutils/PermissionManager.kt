@@ -33,7 +33,7 @@ import java.util.*
 /**
  * Created by com.raphaelbussa on 22/06/16.
  */
-class PermissionManager {
+public class PermissionManager {
 
     private var fullCallback: FullCallback? = null
     private var simpleCallback: SimpleCallback? = null
@@ -54,7 +54,7 @@ class PermissionManager {
      * @param permissions an array of permission that you need to ask
      * @return current instance
      */
-    fun permissions(permissions: List<String>): PermissionManager {
+    public fun permissions(permissions: List<String>): PermissionManager {
         this.permissions.clear()
         this.permissions.addAll(permissions)
         return this
@@ -64,7 +64,7 @@ class PermissionManager {
      * @param permission permission you need to ask
      * @return current instance
      */
-    fun permission(permission: String): PermissionManager {
+    public fun permission(permission: String): PermissionManager {
         permissions.clear()
         permissions.add(permission)
         return this
@@ -74,7 +74,7 @@ class PermissionManager {
      * @param permissions permission you need to ask
      * @return current instance
      */
-    fun permission(vararg permissions: String): PermissionManager {
+    public fun permission(vararg permissions: String): PermissionManager {
         this.permissions.clear()
         this.permissions.addAll(permissions.toList())
         return this
@@ -84,7 +84,7 @@ class PermissionManager {
      * @param askAgain ask again when permission not granted
      * @return current instance
      */
-    fun askAgain(askAgain: Boolean): PermissionManager {
+    public fun askAgain(askAgain: Boolean): PermissionManager {
         this.askAgain = askAgain
         return this
     }
@@ -93,7 +93,7 @@ class PermissionManager {
      * @param fullCallback set fullCallback for the request
      * @return current instance
      */
-    fun callback(fullCallback: FullCallback): PermissionManager {
+    public fun callback(fullCallback: FullCallback): PermissionManager {
         this.simpleCallback = null
         this.smartCallback = null
         this.fullCallback = fullCallback
@@ -104,7 +104,7 @@ class PermissionManager {
      * @param simpleCallback set simpleCallback for the request
      * @return current instance
      */
-    fun callback(simpleCallback: SimpleCallback): PermissionManager {
+    public fun callback(simpleCallback: SimpleCallback): PermissionManager {
         this.fullCallback = null
         this.smartCallback = null
         this.simpleCallback = simpleCallback
@@ -115,7 +115,7 @@ class PermissionManager {
      * @param smartCallback set smartCallback for the request
      * @return current instance
      */
-    fun callback(smartCallback: SmartCallback): PermissionManager {
+    public fun callback(smartCallback: SmartCallback): PermissionManager {
         fullCallback = null
         simpleCallback = null
         this.smartCallback = smartCallback
@@ -126,7 +126,7 @@ class PermissionManager {
      * @param askAgainCallback set askAgainCallback for the request
      * @return current instance
      */
-    fun askAgainCallback(askAgainCallback: AskAgainCallback): PermissionManager {
+    public fun askAgainCallback(askAgainCallback: AskAgainCallback): PermissionManager {
         this.askAgainCallback = askAgainCallback
         return this
     }
@@ -135,7 +135,7 @@ class PermissionManager {
      * @param key set a custom request code
      * @return current instance
      */
-    fun key(key: Int): PermissionManager {
+    public fun key(key: Int): PermissionManager {
         this.key = key
         return this
     }
@@ -144,7 +144,7 @@ class PermissionManager {
      * @param activity target activity
      * just start all permission manager
      */
-    fun ask(activity: Activity) {
+    public fun ask(activity: Activity) {
         ask(activity, null)
     }
 
@@ -152,7 +152,7 @@ class PermissionManager {
      * @param fragmentX target v4 fragment
      * just start all permission manager
      */
-    fun ask(fragment: Fragment) {
+    public fun ask(fragment: Fragment) {
         ask(null, fragment)
     }
 
@@ -225,7 +225,7 @@ class PermissionManager {
         instance = null
     }
 
-    companion object {
+    public companion object {
         private var instance: PermissionManager? = null
 
         /**
@@ -233,7 +233,7 @@ class PermissionManager {
          */
         @Suppress("FunctionName")
         @JvmStatic
-        fun Builder(): PermissionManager {
+        public fun Builder(): PermissionManager {
             return PermissionManager().also { instance = it }
         }
 
@@ -243,7 +243,7 @@ class PermissionManager {
          * @param permissions  permissions
          * @param grantResults grantResults
          */
-        fun handleResult(
+        public fun handleResult(
             activity: Activity,
             requestCode: Int,
             permissions: Array<String>,
@@ -258,7 +258,7 @@ class PermissionManager {
          * @param permissions  permissions
          * @param grantResults grantResults
          */
-        fun handleResult(
+        public fun handleResult(
             fragment: Fragment,
             requestCode: Int,
             permissions: Array<String>,
