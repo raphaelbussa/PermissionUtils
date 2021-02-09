@@ -29,10 +29,6 @@
         android:title="@string/action_settings" />
 
     <item
-        android:id="@+id/action_fragment_v4"
-        android:title="@string/action_fragment_x" />
-
-    <item
         android:id="@+id/action_fragment"
         android:title="@string/action_fragment" />
 

@@ -21,30 +21,31 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
+package com.raphaelbussa.permissionutils
 
-package rebus.permissionutils;
-
-import android.content.Context;
-import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.net.Uri;
-import android.os.Build;
-
-import androidx.core.content.ContextCompat;
+import android.content.Context
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.net.Uri
+import android.os.Build
+import android.provider.Settings
+import androidx.core.content.ContextCompat
 
 /**
- * Created by raphaelbussa on 22/06/16.
+ * Created by com.raphaelbussa on 22/06/16.
  */
-@SuppressWarnings({"unused", "WeakerAccess"})
-public class PermissionUtils {
-
+object PermissionUtils {
     /**
      * @param context    current context
      * @param permission permission to check
      * @return if permission is granted return true
      */
-    public static boolean isGranted(Context context, PermissionEnum permission) {
-        return Build.VERSION.SDK_INT < Build.VERSION_CODES.M || ContextCompat.checkSelfPermission(context, permission.toString()) == PackageManager.PERMISSION_GRANTED;
+    @JvmStatic
+    fun isGranted(context: Context, permission: String): Boolean {
+        return Build.VERSION.SDK_INT < Build.VERSION_CODES.M || ContextCompat.checkSelfPermission(
+            context,
+            permission
+        ) == PackageManager.PERMISSION_GRANTED
     }
 
     /**
@@ -52,31 +53,33 @@ public class PermissionUtils {
      * @param permission all permission you need to check
      * @return if one of permission is not granted return false
      */
-    public static boolean isGranted(Context context, PermissionEnum... permission) {
-        for (PermissionEnum permissionEnum : permission) {
+    @JvmStatic
+    fun isGranted(context: Context, vararg permission: String): Boolean {
+        for (permissionEnum in permission) {
             if (!isGranted(context, permissionEnum)) {
-                return false;
+                return false
             }
         }
-        return true;
+        return true
     }
 
     /**
      * @param packageName package name of your app
      * @return an intent to start for open settings app
      */
-    public static Intent openApplicationSettings(String packageName) {
-        Intent intent = new Intent(android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS);
-        intent.setData(Uri.parse("package:" + packageName));
-        return intent;
+    @JvmStatic
+    fun openApplicationSettings(packageName: String): Intent {
+        val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
+        intent.data = Uri.parse("package:$packageName")
+        return intent
     }
 
     /**
      * @param context     current context
      * @param packageName package name of your app
      */
-    public static void openApplicationSettings(Context context, String packageName) {
-        context.startActivity(openApplicationSettings(packageName));
+    @JvmStatic
+    fun openApplicationSettings(context: Context, packageName: String) {
+        context.startActivity(openApplicationSettings(packageName))
     }
-
 }

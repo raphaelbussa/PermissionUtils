@@ -21,22 +21,21 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-
-package rebus.permissionutils;
-
-import java.util.ArrayList;
+package com.raphaelbussa.permissionutils
 
 /**
- * Created by raphaelbussa on 22/06/16.
+ * Created by com.raphaelbussa on 22/06/16.
  */
-public interface FullCallback {
-
+fun interface AskAgainCallback {
     /**
-     * @param permissionsGranted       list of permission granted
-     * @param permissionsDenied        list of permission denied
-     * @param permissionsDeniedForever list of permission denied forever
-     * @param permissionsAsked         list of permission asked
+     * @param response user response
      */
-    void result(ArrayList<PermissionEnum> permissionsGranted, ArrayList<PermissionEnum> permissionsDenied, ArrayList<PermissionEnum> permissionsDeniedForever, ArrayList<PermissionEnum> permissionsAsked);
+    fun showRequestPermission(response: UserResponse)
 
+    fun interface UserResponse {
+        /**
+         * @param askAgain the response from the user if allow to ask again a permission
+         */
+        fun result(askAgain: Boolean)
+    }
 }
