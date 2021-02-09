@@ -23,8 +23,6 @@
  */
 package com.raphaelbussa.permissionutils
 
-import java.util.*
-
 /**
  * Created by com.raphaelbussa on 22/06/16.
  */

@@ -33,7 +33,7 @@ import java.util.*
 /**
  * Created by com.raphaelbussa on 22/06/16.
  */
-public class PermissionManager {
+public class PermissionManager private constructor() {
 
     private var fullCallback: FullCallback? = null
     private var simpleCallback: SimpleCallback? = null
@@ -150,7 +150,7 @@ public class PermissionManager {
     }
 
     /**
-     * @param fragmentX target v4 fragment
+     * @param fragment target fragment
      * just start all permission manager
      */
     public fun ask(fragment: Fragment) {
