@@ -127,6 +127,7 @@ public class PermissionManager {
      * @return current instance
      */
     public fun askAgainCallback(askAgainCallback: AskAgainCallback): PermissionManager {
+        this.askAgain = true
         this.askAgainCallback = askAgainCallback
         return this
     }
