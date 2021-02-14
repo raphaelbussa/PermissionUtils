@@ -26,6 +26,6 @@ package com.raphaelbussa.permissionutils
 /**
  * Created by com.raphaelbussa on 22/06/16.
  */
-object PermissionConstant {
+internal object PermissionConstant {
     const val KEY_PERMISSION = 100
 }

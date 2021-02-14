@@ -26,10 +26,10 @@ package com.raphaelbussa.permissionutils
 /**
  * Created by com.raphaelbussa on 16/11/16.
  */
-fun interface SmartCallback {
+public fun interface SmartCallback {
     /**
      * @param allPermissionsGranted        true if all permissions are granted
      * @param somePermissionsDeniedForever true if one of asked permissions are denied forever
      */
-    fun result(allPermissionsGranted: Boolean, somePermissionsDeniedForever: Boolean)
+    public fun result(allPermissionsGranted: Boolean, somePermissionsDeniedForever: Boolean)
 }

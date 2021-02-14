@@ -34,14 +34,14 @@ import androidx.core.content.ContextCompat
 /**
  * Created by com.raphaelbussa on 22/06/16.
  */
-object PermissionUtils {
+public object PermissionUtils {
     /**
      * @param context    current context
      * @param permission permission to check
      * @return if permission is granted return true
      */
     @JvmStatic
-    fun isGranted(context: Context, permission: String): Boolean {
+    public fun isGranted(context: Context, permission: String): Boolean {
         return Build.VERSION.SDK_INT < Build.VERSION_CODES.M || ContextCompat.checkSelfPermission(
             context,
             permission
@@ -54,7 +54,7 @@ object PermissionUtils {
      * @return if one of permission is not granted return false
      */
     @JvmStatic
-    fun isGranted(context: Context, vararg permission: String): Boolean {
+    public fun isGranted(context: Context, vararg permission: String): Boolean {
         for (permissionEnum in permission) {
             if (!isGranted(context, permissionEnum)) {
                 return false
@@ -68,7 +68,7 @@ object PermissionUtils {
      * @return an intent to start for open settings app
      */
     @JvmStatic
-    fun openApplicationSettings(packageName: String): Intent {
+    public fun openApplicationSettings(packageName: String): Intent {
         val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
         intent.data = Uri.parse("package:$packageName")
         return intent
@@ -79,7 +79,7 @@ object PermissionUtils {
      * @param packageName package name of your app
      */
     @JvmStatic
-    fun openApplicationSettings(context: Context, packageName: String) {
+    public fun openApplicationSettings(context: Context, packageName: String) {
         context.startActivity(openApplicationSettings(packageName))
     }
 }

@@ -26,16 +26,16 @@ package com.raphaelbussa.permissionutils
 /**
  * Created by com.raphaelbussa on 22/06/16.
  */
-fun interface AskAgainCallback {
+public fun interface AskAgainCallback {
     /**
      * @param response user response
      */
-    fun showRequestPermission(response: UserResponse)
+    public fun showRequestPermission(response: UserResponse)
 
-    fun interface UserResponse {
+    public fun interface UserResponse {
         /**
          * @param askAgain the response from the user if allow to ask again a permission
          */
-        fun result(askAgain: Boolean)
+        public fun result(askAgain: Boolean)
     }
 }

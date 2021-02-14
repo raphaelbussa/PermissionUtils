@@ -26,9 +26,9 @@ package com.raphaelbussa.permissionutils
 /**
  * Created by com.raphaelbussa on 22/06/16.
  */
-fun interface SimpleCallback {
+public fun interface SimpleCallback {
     /**
      * @param allPermissionsGranted true if all permissions are granted
      */
-    fun result(allPermissionsGranted: Boolean)
+    public fun result(allPermissionsGranted: Boolean)
 }
