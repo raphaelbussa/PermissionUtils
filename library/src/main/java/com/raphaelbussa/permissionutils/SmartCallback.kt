@@ -21,14 +21,15 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-
-package rebus.permissionutils;
+package com.raphaelbussa.permissionutils
 
 /**
- * Created by raphaelbussa on 22/06/16.
+ * Created by com.raphaelbussa on 16/11/16.
  */
-public class PermissionConstant {
-
-    public final static int KEY_PERMISSION = 100;
-
+fun interface SmartCallback {
+    /**
+     * @param allPermissionsGranted        true if all permissions are granted
+     * @param somePermissionsDeniedForever true if one of asked permissions are denied forever
+     */
+    fun result(allPermissionsGranted: Boolean, somePermissionsDeniedForever: Boolean)
 }

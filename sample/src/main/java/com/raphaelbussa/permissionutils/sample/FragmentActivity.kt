@@ -21,26 +21,31 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
+package com.raphaelbussa.permissionutils.sample
 
-package rebus.permissionutils;
+import android.os.Bundle
+import android.view.MenuItem
+import androidx.appcompat.app.AppCompatActivity
 
-/**
- * Created by raphaelbussa on 22/06/16.
- */
-public interface AskAgainCallback {
-
-    /**
-     * @param response user response
-     */
-    void showRequestPermission(UserResponse response);
-
-    interface UserResponse {
-
-        /**
-         * @param askAgain the response from the user if allow to ask again a permission
-         */
-        void result(boolean askAgain);
-
+class FragmentActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_fragment)
+        supportActionBar?.apply {
+            setDisplayHomeAsUpEnabled(true)
+            subtitle = "Fragment"
+        }
+        if (savedInstanceState == null) {
+            supportFragmentManager.beginTransaction()
+                    .add(R.id.container, SecondFragment())
+                    .commit()
+        }
     }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            android.R.id.home -> finish()
+        }
+        return super.onOptionsItemSelected(item)
+    }
 }

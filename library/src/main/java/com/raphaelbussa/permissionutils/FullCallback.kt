@@ -21,36 +21,24 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
+package com.raphaelbussa.permissionutils
 
-apply plugin: 'com.android.application'
-apply plugin: 'kotlin-android'
+import java.util.*
 
-android {
-
-    compileSdkVersion var.compileSdk
-
-    defaultConfig {
-        applicationId "com.com.raphaelbussa.permissionutils.sample"
-        minSdkVersion var.minSdk
-        targetSdkVersion var.targetSdk
-        versionCode 1
-        versionName "${var.version}"
-    }
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-    }
-    lintOptions {
-        abortOnError false
-    }
-}
-
-dependencies {
-    implementation project(':library')
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'com.google.android.material:material:1.3.0'
-    implementation 'androidx.appcompat:appcompat:1.2.0'
-    implementation "androidx.core:core-ktx:1.3.2"
+/**
+ * Created by com.raphaelbussa on 22/06/16.
+ */
+fun interface FullCallback {
+    /**
+     * @param permissionsGranted       list of permission granted
+     * @param permissionsDenied        list of permission denied
+     * @param permissionsDeniedForever list of permission denied forever
+     * @param permissionsAsked         list of permission asked
+     */
+    fun result(
+        permissionsGranted: List<String>,
+        permissionsDenied: List<String>,
+        permissionsDeniedForever: List<String>,
+        permissionsAsked: List<String>
+    )
 }

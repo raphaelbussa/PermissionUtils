@@ -21,17 +21,14 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-
-package rebus.permissionutils;
+package com.raphaelbussa.permissionutils
 
 /**
- * Created by raphaelbussa on 22/06/16.
+ * Created by com.raphaelbussa on 22/06/16.
  */
-public interface SimpleCallback {
-
+fun interface SimpleCallback {
     /**
      * @param allPermissionsGranted true if all permissions are granted
      */
-    void result(boolean allPermissionsGranted);
-
+    fun result(allPermissionsGranted: Boolean)
 }

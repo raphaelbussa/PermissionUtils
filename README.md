@@ -1,7 +1,7 @@
 # Permission Utils
-[![Download](https://api.bintray.com/packages/raphaelbussa/maven/permission-utils/images/download.svg) ](https://bintray.com/raphaelbussa/maven/permission-utils/_latestVersion) [![API](https://img.shields.io/badge/API-14%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=14) [![GitHub issues](https://img.shields.io/github/issues/raphaelbussa/PermissionUtils.svg)](https://github.com/raphaelbussa/PermissionUtils/issues) [![GitHub forks](https://img.shields.io/github/forks/raphaelbussa/PermissionUtils.svg)](https://github.com/raphaelbussa/PermissionUtils/network) [![GitHub stars](https://img.shields.io/github/stars/raphaelbussa/PermissionUtils.svg)](https://github.com/raphaelbussa/PermissionUtils/stargazers) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/raphaelbussa/PermissionUtils/master/LICENSE) [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-PermissionUtils-green.svg?style=true)](https://android-arsenal.com/details/1/3951)
+[![Download](https://api.bintray.com/packages/com.raphaelbussa/maven/permission-utils/images/download.svg) ](https://bintray.com/com.raphaelbussa/maven/permission-utils/_latestVersion) [![API](https://img.shields.io/badge/API-14%2B-brightgreen.svg?style=flat)](https://android-arsenal.com/api?level=14) [![GitHub issues](https://img.shields.io/github/issues/com.raphaelbussa/PermissionUtils.svg)](https://github.com/com.raphaelbussa/PermissionUtils/issues) [![GitHub forks](https://img.shields.io/github/forks/com.raphaelbussa/PermissionUtils.svg)](https://github.com/com.raphaelbussa/PermissionUtils/network) [![GitHub stars](https://img.shields.io/github/stars/com.raphaelbussa/PermissionUtils.svg)](https://github.com/com.raphaelbussa/PermissionUtils/stargazers) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://raw.githubusercontent.com/com.raphaelbussa/PermissionUtils/master/LICENSE) [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-PermissionUtils-green.svg?style=true)](https://android-arsenal.com/details/1/3951)
 
-![Logo](https://raw.githubusercontent.com/raphaelbussa/PermissionUtils/master/sample/src/main/ic_launcher-web.png)
+![Logo](https://raw.githubusercontent.com/com.raphaelbussa/PermissionUtils/master/sample/src/main/ic_launcher-web.png)
 
 Check marshmallow permission easily
 
@@ -10,7 +10,7 @@ At the moment the library is in my personal maven repo
 ```Gradle
 repositories {
     maven {
-        url 'http://dl.bintray.com/raphaelbussa/maven'
+        url 'http://dl.bintray.com/com.raphaelbussa/maven'
     }
 }
 ```
@@ -85,18 +85,18 @@ PermissionUtils.openApplicationSettings(MainActivity.this, R.class.getPackage().
 # That's all folks!
 
 ### Sample
-Browse the sample code [here](https://github.com/raphaelbussa/PermissionUtils/tree/master/sample)
+Browse the sample code [here](https://github.com/com.raphaelbussa/PermissionUtils/tree/master/sample)
 
 ### Javadoc
-Browse Javadoc [here](https://raphaelbussa.github.io/PermissionUtils/javadoc/)
+Browse Javadoc [here](https://com.raphaelbussa.github.io/PermissionUtils/javadoc/)
 
 ### App using Permission Utils
-If you use this lib [contact me](mailto:raphaelbussa@gmail.com?subject=PermissionUtils) and I will add it to the list below:
+If you use this lib [contact me](mailto:com.raphaelbussa@gmail.com?subject=PermissionUtils) and I will add it to the list below:
 
 ### Developed By
-Raphaël Bussa - [raphaelbussa@gmail.com](mailto:raphaelbussa@gmail.com)
+Raphaël Bussa - [com.raphaelbussa@gmail.com](mailto:com.raphaelbussa@gmail.com)
 
-[ ![Twitter](https://raw.githubusercontent.com/raphaelbussa/PermissionUtils/master/img/social/twitter-icon.png) ](https://twitter.com/raphaelbussa)[ ![Linkedin](https://raw.githubusercontent.com/raphaelbussa/PermissionUtils/master/img/social/linkedin-icon.png) ](https://www.linkedin.com/in/raphaelbussa)
+[ ![Twitter](https://raw.githubusercontent.com/com.raphaelbussa/PermissionUtils/master/img/social/twitter-icon.png) ](https://twitter.com/com.raphaelbussa)[ ![Linkedin](https://raw.githubusercontent.com/com.raphaelbussa/PermissionUtils/master/img/social/linkedin-icon.png) ](https://www.linkedin.com/in/com.raphaelbussa)
 
 ### License
 ```

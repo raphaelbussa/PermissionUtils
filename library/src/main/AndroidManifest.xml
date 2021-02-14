@@ -23,7 +23,7 @@
   -->
 
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="rebus.permissionutils">
+    package="com.raphaelbussa.permissionutils">
 
     <application android:label="@string/app_name" />
 

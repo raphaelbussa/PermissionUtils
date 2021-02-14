@@ -21,19 +21,11 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  */
-
-package rebus.permissionutils;
+package com.raphaelbussa.permissionutils
 
 /**
- * Created by raphaelbussa on 16/11/16.
+ * Created by com.raphaelbussa on 22/06/16.
  */
-
-public interface SmartCallback {
-
-    /**
-     * @param allPermissionsGranted        true if all permissions are granted
-     * @param somePermissionsDeniedForever true if one of asked permissions are denied forever
-     */
-    void result(boolean allPermissionsGranted, boolean somePermissionsDeniedForever);
-
+object PermissionConstant {
+    const val KEY_PERMISSION = 100
 }

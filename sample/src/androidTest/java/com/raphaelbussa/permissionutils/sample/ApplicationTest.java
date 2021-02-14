@@ -1,4 +1,4 @@
-package rebus.permissionutils.sample;
+package com.raphaelbussa.permissionutils.sample;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
