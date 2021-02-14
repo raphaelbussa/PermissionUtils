@@ -29,7 +29,7 @@ android {
     compileSdkVersion var.compileSdk
 
     defaultConfig {
-        applicationId "rebus.permissionutils.sample"
+        applicationId "com.raphaelbussa.permissionutils.sample"
         minSdkVersion var.minSdk
         targetSdkVersion var.targetSdk
         versionCode 1
