@@ -319,13 +319,13 @@ public class PermissionManager {
      * check if one of three types of callback are not null and pass data
      */
     private void showResult() {
+        instance = null;
         if (simpleCallback != null)
             simpleCallback.result(permissionToAsk.size() == 0 || permissionToAsk.size() == permissionsGranted.size());
         if (fullCallback != null)
             fullCallback.result(permissionsGranted, permissionsDenied, permissionsDeniedForever, permissions);
         if (smartCallback != null)
             smartCallback.result(permissionToAsk.size() == 0 || permissionToAsk.size() == permissionsGranted.size(), !permissionsDeniedForever.isEmpty());
-        instance = null;
     }
 
 }
